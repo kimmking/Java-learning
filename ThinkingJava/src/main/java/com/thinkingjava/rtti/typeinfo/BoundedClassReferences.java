@@ -14,3 +14,4 @@ public class BoundedClassReferences {
 		bounded = Number.class;
 	}
 }
+
