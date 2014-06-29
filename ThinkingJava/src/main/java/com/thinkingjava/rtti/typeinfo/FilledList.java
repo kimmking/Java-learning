@@ -3,11 +3,17 @@ package com.thinkingjava.rtti.typeinfo;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author wangwei
+ * @info
+ * (1) newInstance() 需要无参构造器
+ */
 class CountedInteger{
 	private static long counter;
 	private final long id = counter ++ ;
-	public String toString(){
-		return Long.toString(id);
+	@Override
+	public String toString() {
+		return "CountedInteger [id=" + id + "]";
 	}
 }
 
