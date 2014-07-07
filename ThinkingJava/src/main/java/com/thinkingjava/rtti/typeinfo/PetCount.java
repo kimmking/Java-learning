@@ -19,6 +19,9 @@ import com.thinkingjava.rtti.typeinfo.pets.Rodent;
 public class PetCount {
 	
 	static class PetCounter extends HashMap<String,Integer>{
+		
+		private static final long serialVersionUID = -1215991836054403566L;
+
 		public void count(String type){
 			Integer quantity = get(type);
 			if(quantity == null)

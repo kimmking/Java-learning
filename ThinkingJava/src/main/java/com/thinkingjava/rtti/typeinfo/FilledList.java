@@ -22,6 +22,7 @@ public class FilledList<T> {
 	public FilledList(Class<T> type){
 		this.type = type;
 	}
+	
 	public List<T> create(int nElements){
 		List<T> result = new ArrayList<T>();
 		try {
@@ -35,6 +36,7 @@ public class FilledList<T> {
 		}
 		return result;
 	}
+	
 	public static void main(String[] args){
 		FilledList<CountedInteger> fl = 
 				new FilledList<CountedInteger>(CountedInteger.class);
