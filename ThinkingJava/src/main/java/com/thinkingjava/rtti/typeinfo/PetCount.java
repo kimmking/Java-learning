@@ -34,7 +34,7 @@ public class PetCount {
 	public static void countPets(PetCreator creator){
 		PetCounter counter = new PetCounter();
 		for(Pet pet : creator.createArray(28)){
-			pet.getClass().getSimpleName();
+			String name = pet.getClass().getSimpleName();
 			if(pet instanceof Pet){
 				counter.count("pet");
 			}
@@ -68,8 +68,7 @@ public class PetCount {
 			if(pet instanceof Hamster){
 				counter.count("Hamster");
 			}
-			System.out.println();
-			System.out.println(counter);
+			System.out.println(name);
 		}
 	}
 	
