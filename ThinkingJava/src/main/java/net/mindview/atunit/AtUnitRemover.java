@@ -11,8 +11,13 @@ import static net.mindview.util.Print.print;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.lang.annotation.Annotation;
 
+import javassist.ClassPool;
+import javassist.CtClass;
+import javassist.CtMethod;
+import javassist.bytecode.AnnotationsAttribute;
+import javassist.bytecode.MethodInfo;
+import javassist.bytecode.annotation.Annotation;
 import net.mindview.util.BinaryFile;
 import net.mindview.util.ProcessFiles;
 
