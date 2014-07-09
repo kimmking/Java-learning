@@ -49,7 +49,7 @@ public class MapData<K,V> extends LinkedHashMap<K,V> {
   map(Generator<K> genK, V value, int quantity) {
     return new MapData<K,V>(genK, value, quantity);
   }
-  public static <K,V> MapData<K,V>
+  public static <K,V> MapData<K,V> 
   map(Iterable<K> genK, Generator<V> genV) {
     return new MapData<K,V>(genK, genV);
   }
