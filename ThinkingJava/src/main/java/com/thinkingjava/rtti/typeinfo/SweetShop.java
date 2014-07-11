@@ -12,7 +12,7 @@ static { print("Loading Gum"); }
 }
 
 class Cookie {
-static { print("Loading Cookie"); }
+static { print("Loading Cookie_1"); }
 }
 
 public class SweetShop {
