@@ -14,7 +14,7 @@ public abstract class PetCreator {
 		Pet pet = null;
 		try {
 			pet =  types().get(n).newInstance();
-		} catch (InstantiationException | IllegalAccessException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return pet;

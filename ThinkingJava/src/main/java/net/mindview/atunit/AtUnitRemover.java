@@ -12,7 +12,6 @@ import static net.mindview.util.Print.print;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.lang.annotation.Annotation;
 
 import javassist.ClassPool;
 import javassist.CtClass;
