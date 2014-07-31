@@ -46,9 +46,6 @@ public class FamilyVsExactType {
 /**
  * instancof 和 isInstance() 结果完全一样， 他们会考虑到继承和派生关系
  * equal 和 == 完全一样，但是他们比较死板，yes or  no
- * 
- * 
- * 
  */
 
 
