@@ -1,5 +1,7 @@
 package com.thinkingjava.rtti.typeinfo;
 
+import java.util.Collections;
+
 class Position {
 	private String title;
 	private Person person;
