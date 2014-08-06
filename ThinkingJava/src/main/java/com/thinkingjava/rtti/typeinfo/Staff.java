@@ -42,16 +42,16 @@ public class Staff extends ArrayList<Position> {
 				"Product Manager", "Project Lead", "Software Engineer",
 				"Software Engineer", "Software Engineer", "Software Engineer",
 				"Test Engineer", "Technical Writer");
-		staff.fillPosition("President", new Person("Me", "Last",
-				"The Top, Lonely At"));
-		staff.fillPosition("Project Lead", new Person("Janet", "Planner",
-				"The Burbs"));
+		staff.fillPosition("President", new Person("Me", "Last", "The Top, Lonely At"));
+		staff.fillPosition("Project Lead", new Person("Janet","Planner","The Burbs"));
 		if (staff.positionAvailable("Software Engineer"))
 			staff.fillPosition("Software Engineer", new Person("Bob", "Coder",
 					"Bright Light City"));
 		System.out.println(staff);
 	}
-} /*
+}
+
+/*
  * Output: [Position: President Person: Me Last The Top, Lonely At, Position:
  * CTO NullPerson, Position: Marketing Manager NullPerson, Position: Product
  * Manager NullPerson, Position: Project Lead Person: Janet Planner The Burbs,
