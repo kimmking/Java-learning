@@ -36,15 +36,10 @@ public class AppTest
     public void testApp()
     {
     	Random rand = new Random(90);
-    	
     	for(int i =0 ;i < 20 ; i++){
-    		
     	 	int e = rand.nextInt();
-        	
         	System.out.println(e);
-    		
     	}
-   
         assertTrue( true );
     }
 }
