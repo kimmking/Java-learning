@@ -5,6 +5,9 @@ package com.thinkingjava.rtti.initialization;
 import static net.mindview.util.Print.*;
 
 class Bowl {
+	static{
+		print("test");
+	}
 	Bowl(int marker) {
 		print("Bowl(" + marker + ")");
 	}
@@ -15,6 +18,7 @@ class Bowl {
 }
 
 class Table {
+	static Bowl bowl0;
 	static Bowl bowl1 = new Bowl(1);
 
 	Table() {
@@ -57,8 +61,8 @@ public class StaticInitialization {
 
 	static Table table = new Table();
 	static Cupboard cupboard = new Cupboard();
-	
-} 
+}
+
 /*
  * Output: 
  * Bowl(1) 
@@ -81,7 +85,6 @@ public class StaticInitialization {
  * f1(2) 
  * f2(1) 
  * f3(1)
- * 
  * 
  * (1) 无论创建多少个对象，静态数据都只占用一份存储区域；
  * (2) 静态初始化只有在必要的时刻才会进行，第一次初始化后，将不再初始化；
