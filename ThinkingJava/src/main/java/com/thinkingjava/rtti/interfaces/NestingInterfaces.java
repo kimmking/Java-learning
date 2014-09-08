@@ -1,4 +1,4 @@
-package nesting;
+package com.thinkingjava.rtti.interfaces;
 
 //: interfaces/nesting/NestingInterfaces.java
 class A {
