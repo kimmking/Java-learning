@@ -17,7 +17,7 @@ public class LiteralPetCreator extends PetCreator {
 					Mutt.class, Pug.class, EgyptianMau.class,
 					Manx.class, Cymric.class, Rat.class, Mouse.class,
 					Hamster.class));
-			
+	
 
 	private static final List<Class<? extends Pet>> types =
 			allTypes.subList(allTypes.indexOf(Mutt.class), allTypes.size());
