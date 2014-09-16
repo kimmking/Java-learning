@@ -9,6 +9,7 @@ import com.thinkingjava.rtti.innerclasses.controller.Controller;
 import com.thinkingjava.rtti.innerclasses.controller.Event;
 
 public class GreenhouseControls extends Controller {
+
 	private boolean light = false;
 
 	public class LightOn extends Event {

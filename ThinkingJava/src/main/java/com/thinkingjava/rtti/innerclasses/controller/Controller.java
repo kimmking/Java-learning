@@ -2,7 +2,8 @@
 // The reusable framework for control systems.
 package com.thinkingjava.rtti.innerclasses.controller;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
 	// A class from java.util to hold Event objects:
