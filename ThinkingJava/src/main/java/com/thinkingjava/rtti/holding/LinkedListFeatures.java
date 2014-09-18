@@ -35,21 +35,19 @@ public class LinkedListFeatures {
 		print("After addLast(): " + pets);
 		print("pets.removeLast(): " + pets.removeLast());
 	}
-} 
+}
 
 /*
- * [Rat, Manx, Cymric, Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt]
-pets.getFirst(): Rat
-pets.element(): Rat
-pets.peek(): Rat
-pets.remove(): Rat
-pets.removeFirst(): Manx
-pets.poll(): Cymric
-[Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt]
-After addFirst(): [Rat, Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt]
-After offer(): [Rat, Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt, Cymric]
-After add(): [Rat, Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt, Cymric, Mouse]
-After addLast(): [Rat, Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt, Cymric, Mouse, Hamster]
-pets.removeLast(): Hamster
-
+ * [Rat, Manx, Cymric, Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau,
+ * Hamster, EgyptianMau, Mutt, Mutt] pets.getFirst(): Rat pets.element(): Rat
+ * pets.peek(): Rat pets.remove(): Rat pets.removeFirst(): Manx pets.poll():
+ * Cymric [Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster,
+ * EgyptianMau, Mutt, Mutt] After addFirst(): [Rat, Mutt, Pug, Cymric, Pug,
+ * Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt] After
+ * offer(): [Rat, Mutt, Pug, Cymric, Pug, Manx, Cymric, Rat, EgyptianMau,
+ * Hamster, EgyptianMau, Mutt, Mutt, Cymric] After add(): [Rat, Mutt, Pug,
+ * Cymric, Pug, Manx, Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt,
+ * Mutt, Cymric, Mouse] After addLast(): [Rat, Mutt, Pug, Cymric, Pug, Manx,
+ * Cymric, Rat, EgyptianMau, Hamster, EgyptianMau, Mutt, Mutt, Cymric, Mouse,
+ * Hamster] pets.removeLast(): Hamster
  */
