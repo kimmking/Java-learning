@@ -20,6 +20,10 @@ public class TestRegularExpression {
 			print("Regular expression: \"" + arg + "\"");
 			Pattern p = Pattern.compile(arg);
 			Matcher m = p.matcher(args[0]);
+			
+			System.out.println(m.matches()); // 检查整个字符串是否匹配
+			System.out.println(m.lookingAt()); // 检查起始部分是否匹配
+			
 			while (m.find()) {
 				print("Match \"" + m.group() + "\" at positions " + m.start()
 						+ "-" + (m.end() - 1));
