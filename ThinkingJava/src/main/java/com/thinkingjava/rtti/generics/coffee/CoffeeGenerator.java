@@ -2,12 +2,14 @@
 // Generate different types of Coffee:
 package com.thinkingjava.rtti.generics.coffee;
 
-import java.util.*;
-import net.mindview.util.*;
+import java.util.Iterator;
+import java.util.Random;
+
+import net.mindview.util.Generator;
 
 public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
 	private Class[] types = { Latte.class, Mocha.class, Cappuccino.class,
-			Americano.class, Breve.class, };
+			Americano.class, Breve.class};
 	private static Random rand = new Random(47);
 
 	public CoffeeGenerator() {
