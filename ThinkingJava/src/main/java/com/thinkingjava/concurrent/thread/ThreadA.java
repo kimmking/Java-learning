@@ -1,25 +1,17 @@
 package com.thinkingjava.concurrent.thread;
 
-import java.util.concurrent.Callable;
-
 /**
  * Created by wangwei on 16/2/19.
  */
-public class ThreadA implements Callable<String> {
+public class ThreadA extends Thread {
 
-    /**
-     * Computes a result, or throws an exception if unable to do so.
-     *
-     * @return computed result
-     * @throws Exception if unable to compute a result
-     */
-    @Override
-    public String call() throws Exception {
-        Thread.sleep(500);
+    public void run() {
+        super.run();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("这是线程A");
-        return "线程A";
     }
-
-
-
 }
