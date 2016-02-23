@@ -32,6 +32,12 @@ public class TreadMain1 {
         System.out.println("测试线程是否为守护线程：" + threadMain.isDaemon());
 
 
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
     }
 
 
