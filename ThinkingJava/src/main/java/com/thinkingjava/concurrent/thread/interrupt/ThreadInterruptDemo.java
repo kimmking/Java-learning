@@ -35,7 +35,6 @@ public class ThreadInterruptDemo implements Runnable {
 //                e.printStackTrace();
                 break;
             }
-
         }
         System.out.println("My Thread existing under request.....");
     }
