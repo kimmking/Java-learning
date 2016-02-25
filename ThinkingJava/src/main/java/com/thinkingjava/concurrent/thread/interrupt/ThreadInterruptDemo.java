@@ -22,16 +22,23 @@ public class ThreadInterruptDemo implements Runnable {
         while (!stop) {
             System.out.println("My Thread is running......");
             long time = System.currentTimeMillis();
-            while ((System.currentTimeMillis() - time) < 1000) {
-
-            }
-            if (Thread.currentThread().isInterrupted()) {//判断当前线程是否中断
+//            while ((System.currentTimeMillis() - time) < 1000) {
+//
+//            }
+//            if (Thread.currentThread().isInterrupted()) {//判断当前线程是否中断
+//                break;
+//            }
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+//                e.printStackTrace();
                 break;
             }
+
         }
         System.out.println("My Thread existing under request.....");
     }
-
 
     public static void main(String[] args) throws Exception {
         Thread thread = new Thread(new ThreadInterruptDemo(), "InterruptDemo Thread");
