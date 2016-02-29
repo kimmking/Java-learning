@@ -9,6 +9,7 @@
 package com.thinkingjava.concurrent.thread;
 
 /**
+ * 验证 Thread start 与 run 的区别
  * Created by wangwei on 16/2/29.
  */
 public class RunnerMain {
