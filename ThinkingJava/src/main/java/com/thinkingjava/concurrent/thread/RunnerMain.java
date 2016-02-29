@@ -25,6 +25,8 @@ public class RunnerMain {
         thread1.start();
         thread2.start();
 
+        thread2.interrupt();
+
         System.out.println(Thread.activeCount());
     }
 }
