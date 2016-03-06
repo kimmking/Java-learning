@@ -9,17 +9,25 @@
 package com.thinkingjava.concurrent.thread.synchronizedd;
 
 /**
- * 当一个线程访问object的一个synchronized(this)同步代码块时，
- * 另一个线程仍然可以访问该object中的非synchronized(this)同步代码块。
  * Created by wangwei on 16/3/6.
  */
-public class Thread2 {
-
-    public void m4t1() {
-        synchronized (this) {
+public class Thread3 {
+    class Inner {
+        private void m4t1() {
             int i = 5;
             while (i-- > 0) {
-                System.out.println(Thread.currentThread().getName() + " : " + i);
+                System.out.println(Thread.currentThread().getName() + " : Inner.m4t1()=" + i);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ie) {
+                }
+            }
+        }
+
+        private void m4t2() {
+            int i = 5;
+            while (i-- > 0) {
+                System.out.println(Thread.currentThread().getName() + " : Inner.m4t2()=" + i);
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException ie) {
@@ -28,31 +36,30 @@ public class Thread2 {
         }
     }
 
-    public synchronized void m4t2() {
-        int i = 5;
-        while (i-- > 0) {
-            System.out.println(Thread.currentThread().getName() + " : " + i);
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException ie) {
-            }
+    private void m4t1(Inner inner) {
+        synchronized (inner) { //使用对象锁
+            inner.m4t1();
         }
     }
 
+    private void m4t2(Inner inner) {
+        inner.m4t2();
+    }
+
     public static void main(String[] args) {
-        final Thread2 myt2 = new Thread2();
+        final Thread3 myt3 = new Thread3();
+        final Inner inner = myt3.new Inner();
         Thread t1 = new Thread(new Runnable() {
             public void run() {
-                myt2.m4t1();
+                myt3.m4t1(inner);
             }
         }, "t1");
         Thread t2 = new Thread(new Runnable() {
             public void run() {
-                myt2.m4t2();
+                myt3.m4t2(inner);
             }
         }, "t2");
         t1.start();
         t2.start();
     }
-
 }
