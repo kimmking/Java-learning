@@ -12,6 +12,7 @@ package com.thinkingjava.concurrent.thread.atomic;
  * Created by wangwei on 16/3/9.
  */
 public class AtomicMain {
+
     public static void main(String[] args) {
         final Count count = new Count();
         for (int i = 0; i < 100; i++) {
