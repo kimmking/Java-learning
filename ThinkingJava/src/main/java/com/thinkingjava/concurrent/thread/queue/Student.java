@@ -22,7 +22,7 @@ public class Student implements Delayed {
 
     public Student(String name, long submitTime) {
         this.name = name;
-        this.workTime = workTime;
+        this.workTime = submitTime;
         this.submitTime = TimeUnit.NANOSECONDS.convert(submitTime, TimeUnit.MILLISECONDS) + System.nanoTime();
         System.out.println(this.name + "交卷，用时" + workTime);
     }
