@@ -100,6 +100,12 @@ public class SemaphoreDemo {
         int putptr, takeptr, count;
 
 
+        /**
+         * 放库存
+         *
+         * @param obj
+         * @throws InterruptedException
+         */
         public void put(Object obj) throws InterruptedException {
             notFull.acquire();
             mutex.acquire();
@@ -115,6 +121,12 @@ public class SemaphoreDemo {
             }
         }
 
+        /**
+         * 取库存
+         *
+         * @return
+         * @throws InterruptedException
+         */
         public Object take() throws InterruptedException {
             notEmpty.acquire();
             mutex.acquire();
