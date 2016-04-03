@@ -20,7 +20,7 @@ public class NewCachedThreadPoolDemo {
 
         ExecutorService executorService = Executors.newCachedThreadPool();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             final int no = i;
             Runnable runnable = new Runnable() {
                 @Override
