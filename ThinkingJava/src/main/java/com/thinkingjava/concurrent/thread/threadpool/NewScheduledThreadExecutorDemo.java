@@ -8,6 +8,7 @@
 
 package com.thinkingjava.concurrent.thread.threadpool;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +20,20 @@ public class NewScheduledThreadExecutorDemo {
 
     public static void main(String[] args) {
 
-        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(10);
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1000);
+
+        try {
+            String str = executorService.submit(new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    return "I am a task, which submited by the so called laoda, and run by those anonymous workers";
+                }
+            }).get();
+
+            System.out.println("str=" + str);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         for (int i = 0; i < 10000; i++) {
             final int no = i;
