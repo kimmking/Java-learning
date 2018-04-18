@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class ReentrantReadWriteLockDemo2 {
 
-    private final Map<String, Object> map = new HashMap<String, Object>();
+    private final Map<String, Object> map = new HashMap<>();
 
     private final ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock();
 

@@ -17,7 +17,7 @@ public class SemaphoreDemo {
 
     public static void main(String[] args) {
         // 启动线程
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 10; i++) {
             // 生产者
             new Thread(new Producer()).start();
             // 消费者
