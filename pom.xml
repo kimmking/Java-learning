@@ -2,12 +2,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>one.wangwei.study</groupId>
-    <artifactId>java</artifactId>
+    <groupId>one.wangwei.backend</groupId>
+    <artifactId>backend-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>backend-java</module>
+        <module>backend-netty</module>
+        <module>backend-design-patterns</module>
+        <module>backend-algods</module>
+    </modules>
     <packaging>pom</packaging>
 
-    <name>Thinking-in-Java</name>
+    <name>backend-learning</name>
     <url>http://maven.apache.org</url>
 
     <dependencies>
@@ -41,11 +47,10 @@
             <artifactId>commons-beanutils</artifactId>
             <version>1.8.3</version>
         </dependency>
-
     </dependencies>
 
     <build>
-        <finalName>Thinking-in-Java</finalName>
+        <finalName>backend-learning</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
