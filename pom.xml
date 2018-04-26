@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>one.wangwei.backend</groupId>
-    <artifactId>backend-parent</artifactId>
+    <artifactId>backend-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>backend-java</module>
         <module>backend-netty</module>
         <module>backend-design-patterns</module>
-        <module>backend-algods</module>
+        <module>backend-algorithms</module>
     </modules>
     <packaging>pom</packaging>
 
