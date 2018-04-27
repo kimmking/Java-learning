@@ -11,5 +11,6 @@ public class MyArrayListTest {
         list.add(null);
         list.clear();
         System.out.println(list);
+
     }
 }
