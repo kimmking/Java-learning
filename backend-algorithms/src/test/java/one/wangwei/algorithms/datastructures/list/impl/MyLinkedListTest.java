@@ -1,0 +1,29 @@
+package one.wangwei.algorithms.datastructures.list.impl;
+
+public class MyLinkedListTest {
+
+    public static void main(String[] args) {
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        for (int i = 0; i < 100; i++) {
+            myLinkedList.add(i);
+        }
+        System.out.println(myLinkedList);
+
+        myLinkedList.add(2, 222);
+        System.out.println(myLinkedList);
+
+        myLinkedList.remove(Integer.valueOf(222));
+        System.out.println(myLinkedList);
+
+        myLinkedList.remove(99);
+        System.out.println(myLinkedList);
+
+        myLinkedList.remove(3);
+        System.out.println(myLinkedList);
+
+        System.out.println(myLinkedList.contains(98));
+
+        myLinkedList.clear();
+    }
+
+}

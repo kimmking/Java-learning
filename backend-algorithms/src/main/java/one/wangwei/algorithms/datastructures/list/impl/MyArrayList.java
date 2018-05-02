@@ -5,7 +5,7 @@ import one.wangwei.algorithms.datastructures.list.interfaces.IList;
 import java.util.Arrays;
 
 /**
- * list集合
+ * 顺序表
  *
  * @param <T>
  * @author wangwei
