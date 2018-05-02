@@ -21,7 +21,9 @@ public class MyLinkedListTest {
         myLinkedList.remove(3);
         System.out.println(myLinkedList);
 
-        System.out.println(myLinkedList.contains(98));
+        myLinkedList.set(0, 827);
+
+        System.out.println(myLinkedList.contains(827));
 
         myLinkedList.clear();
     }
