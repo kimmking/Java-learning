@@ -268,5 +268,4 @@ public class MyLinkedList<T> implements IList<T> {
         }
     }
 
-
 }
