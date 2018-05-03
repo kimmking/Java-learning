@@ -3,13 +3,13 @@ package one.wangwei.algorithms.datastructures.list.impl;
 import one.wangwei.algorithms.datastructures.list.interfaces.IList;
 
 /**
- * 链表结构
+ * 双向链表结构
  *
  * @param <T>
  * @author wangwei
  * @date 2018/04/28
  */
-public class MyLinkedList<T> implements IList<T> {
+public class DoublyLinkedList<T> implements IList<T> {
 
     /**
      * 集合大小
@@ -42,6 +42,7 @@ public class MyLinkedList<T> implements IList<T> {
      * @param element
      * @return
      */
+    @Override
     public boolean add(int index, T element) {
         checkElementIndex(index);
         if (index == size) {
@@ -74,13 +75,13 @@ public class MyLinkedList<T> implements IList<T> {
      * 插入元素
      *
      * @param element
-     * @param succ
+     * @param target
      * @return
      */
-    private boolean addBefore(T element, Node<T> succ) {
-        Node<T> pred = succ.prev;
-        Node<T> newElement = new Node<>(pred, element, succ);
-        succ.prev = newElement;
+    private boolean addBefore(T element, Node<T> target) {
+        Node<T> pred = target.prev;
+        Node<T> newElement = new Node<>(pred, element, target);
+        target.prev = newElement;
         if (pred == null) {
             head = newElement;
         } else {
@@ -135,6 +136,7 @@ public class MyLinkedList<T> implements IList<T> {
      * @return
      */
     private Node<T> node(int index) {
+        // 二分查找
         if (index < (size >> 1)) {
             Node<T> x = head;
             for (int i = 0; i < index; i++) {
@@ -160,13 +162,14 @@ public class MyLinkedList<T> implements IList<T> {
         final Node<T> prev = node.prev;
         final Node<T> next = node.next;
 
-        // 删除元素
+        // 删除head元素
         if (prev == null) {
             head = next;
         } else {
             prev.next = next;
             node.prev = null;
         }
+
         // 删除tail元素
         if (next == null) {
             tail = prev;
@@ -174,6 +177,7 @@ public class MyLinkedList<T> implements IList<T> {
             next.prev = prev;
             node.next = null;
         }
+
         node.element = null;
         size--;
         return element;

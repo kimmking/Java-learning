@@ -3,7 +3,7 @@ package one.wangwei.algorithms.datastructures.list.impl;
 public class MyLinkedListTest {
 
     public static void main(String[] args) {
-        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        DoublyLinkedList<Integer> myLinkedList = new DoublyLinkedList<>();
         for (int i = 0; i < 100; i++) {
             myLinkedList.add(i);
         }

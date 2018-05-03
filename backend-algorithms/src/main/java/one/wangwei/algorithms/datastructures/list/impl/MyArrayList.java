@@ -42,7 +42,8 @@ public class MyArrayList<T> implements IList<T> {
      * @param element
      * @return
      */
-    private boolean add(int index, T element) {
+    @Override
+    public boolean add(int index, T element) {
         // 扩容
         if (size >= array.length) {
             grow();

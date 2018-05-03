@@ -18,6 +18,15 @@ public interface IList<T> {
     public boolean add(T element);
 
     /**
+     * 在index处添加元素
+     *
+     * @param index
+     * @param element
+     * @return
+     */
+    public boolean add(int index, T element);
+
+    /**
      * 移除元素
      *
      * @param element
