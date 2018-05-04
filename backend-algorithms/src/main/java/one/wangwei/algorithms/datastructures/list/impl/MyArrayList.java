@@ -1,6 +1,6 @@
 package one.wangwei.algorithms.datastructures.list.impl;
 
-import one.wangwei.algorithms.datastructures.list.interfaces.IList;
+import one.wangwei.algorithms.datastructures.list.IList;
 
 import java.util.Arrays;
 

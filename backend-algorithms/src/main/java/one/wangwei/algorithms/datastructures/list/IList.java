@@ -1,4 +1,4 @@
-package one.wangwei.algorithms.datastructures.list.interfaces;
+package one.wangwei.algorithms.datastructures.list;
 
 /**
  * 线性表接口

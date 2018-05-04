@@ -25,6 +25,7 @@ public class SinglyCircularLinkedListTest {
         cyclicLinkedList.remove(9);
         System.out.println(cyclicLinkedList);
 
+        cyclicLinkedList.clear();
 
     }
 
