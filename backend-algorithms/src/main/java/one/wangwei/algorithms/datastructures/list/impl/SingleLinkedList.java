@@ -48,7 +48,7 @@ public class SingleLinkedList<T> implements IList<T> {
         if (index == size) {
             return add(element);
         } else {
-            return addBefore(element, node(index));
+            return addBefore(index, element);
         }
     }
 
@@ -75,25 +75,14 @@ public class SingleLinkedList<T> implements IList<T> {
      * 插入元素
      *
      * @param element
-     * @param target
+     * @param element
      * @return
      */
-    private boolean addBefore(T element, Node<T> target) {
-        Node<T> prev = null;
-        Node<T> x = head;
+    private boolean addBefore(int index, T element) {
+        int prevIndex = index - 1;
+        Node<T> prev = prevIndex < 0 ? null : node(prevIndex);
 
-        if (target.element == null) {
-            while (x != null && x.element != null) {
-                prev = x;
-                x = x.next;
-            }
-        } else {
-            while (x != null && !x.element.equals(target.element)) {
-                prev = x;
-                x = x.next;
-            }
-        }
-
+        Node<T> target = node(index);
         Node<T> newElement = new Node<>(element, target);
         if (prev == null) {
             head = newElement;
@@ -115,7 +104,7 @@ public class SingleLinkedList<T> implements IList<T> {
         if (element == null) {
             for (Node<T> x = head; x != null; x = x.next) {
                 if (x.element == null) {
-                     return unlink(x);
+                    return unlink(x);
                 }
             }
         } else {
@@ -137,9 +126,32 @@ public class SingleLinkedList<T> implements IList<T> {
     @Override
     public T remove(int index) {
         checkElementIndex(index);
+
+        int prevIndex = index - 1;
+        Node<T> prev = prevIndex < 0 ? null : node(prevIndex);
         Node<T> node = node(index);
-        boolean result = unlink(node);
-        return result ? node.element : null;
+        Node<T> next = node.next;
+
+        if (prev == null) {
+            head = next;
+        } else {
+            prev.next = next;
+        }
+
+        // 删除tail元素
+        if (next == null) {
+            tail = prev;
+        } else {
+            node.next = null;
+        }
+
+        T element = node.element;
+
+        node.element = null;
+        node = null;
+
+        size--;
+        return element;
     }
 
     /**

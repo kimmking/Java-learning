@@ -8,6 +8,11 @@ public class SingleLinkedListTest {
         for (int i = 0; i < 10; i++) {
             singlyLinkedList.add(i);
         }
+
+        singlyLinkedList.add(1);
+
+        singlyLinkedList.remove(0);
+
         singlyLinkedList.add(null);
         System.out.println(singlyLinkedList);
 
@@ -19,7 +24,6 @@ public class SingleLinkedListTest {
 
         singlyLinkedList.remove(Integer.valueOf(5));
         System.out.println(singlyLinkedList);
-
 
     }
 

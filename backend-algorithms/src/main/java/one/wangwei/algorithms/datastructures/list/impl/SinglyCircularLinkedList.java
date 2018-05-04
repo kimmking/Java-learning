@@ -3,13 +3,13 @@ package one.wangwei.algorithms.datastructures.list.impl;
 import one.wangwei.algorithms.datastructures.list.interfaces.IList;
 
 /**
- * 循环链表
+ * 单向循环链表
  *
  * @param <T>
  * @author wangwei
  * @date 2018/05/03
  */
-public class CyclicLinkedList<T> implements IList<T> {
+public class SinglyCircularLinkedList<T> implements IList<T> {
 
     /**
      * 集合大小
@@ -23,6 +23,10 @@ public class CyclicLinkedList<T> implements IList<T> {
      * 尾部元素
      */
     private Node<T> tail = null;
+
+    public Node<T> getHead() {
+        return head;
+    }
 
     /**
      * 添加元素
@@ -48,7 +52,7 @@ public class CyclicLinkedList<T> implements IList<T> {
         if (index == size) {
             return add(element);
         } else {
-            return addBefore(element, node(index));
+            return addBefore(index, element);
         }
     }
 
@@ -75,31 +79,20 @@ public class CyclicLinkedList<T> implements IList<T> {
      * 插入元素
      *
      * @param element
-     * @param target
+     * @param element
      * @return
      */
-    private boolean addBefore(T element, Node<T> target) {
-        Node<T> prev = null;
-        Node<T> x = head;
-
-        if (target.element == null) {
-            while (x != null && x.element != null) {
-                prev = x;
-                x = x.next;
-            }
-        } else {
-            while (x != null && !x.element.equals(target.element)) {
-                prev = x;
-                x = x.next;
-            }
-        }
+    private boolean addBefore(int index, T element) {
+        int prevIndex = index - 1;
+        Node<T> prev = prevIndex < 0 ? tail : node(prevIndex);
+        Node<T> target = node(index);
 
         Node<T> newElement = new Node<>(element, target);
-        if (prev == null) {
+        if (index == 0) {
             head = newElement;
-        } else {
-            prev.next = newElement;
         }
+
+        prev.next = newElement;
         size++;
         return true;
     }
@@ -137,9 +130,29 @@ public class CyclicLinkedList<T> implements IList<T> {
     @Override
     public T remove(int index) {
         checkElementIndex(index);
+
+        int prevIndex = index - 1;
+        Node<T> prev = prevIndex < 0 ? tail : node(prevIndex);
         Node<T> node = node(index);
-        boolean result = unlink(node);
-        return result ? node.element : null;
+        Node<T> next = node.next;
+
+        if (index == 0) {
+            head = next;
+        } else if (index == size - 1) {
+            tail = prev;
+        } else {
+            node.element = null;
+        }
+
+        prev.next = next;
+
+        T element = node.element;
+        // for GC
+        node.element = null;
+        node = null;
+
+        size--;
+        return element;
     }
 
     /**
@@ -167,39 +180,37 @@ public class CyclicLinkedList<T> implements IList<T> {
         Node<T> prev = null;
         Node<T> x = head;
 
-        if (node.element == null) {
-            while (x != null && x.element != null) {
-                prev = x;
-                x = x.next;
+        int prevIndex = 0;
+        for (int i = 0; i < size; i++) {
+            if (node.element == null && x.element == null) {
+                break;
             }
-        } else {
-            while (x != null && !x.element.equals(node.element)) {
-                prev = x;
-                x = x.next;
+            if (node.element != null && x.element.equals(node.element)) {
+                break;
             }
-        }
-
-        if (x == null) {
-            return false;
+            prev = x;
+            x = x.next;
+            prevIndex = i;
         }
 
         final Node<T> next = node.next;
 
         // 删除head元素
-        if (prev == null) {
+        if (prevIndex == 0) {
             head = next;
-        } else {
-            prev.next = next;
+            prev = tail;
         }
-
         // 删除tail元素
-        if (next == null) {
+        if (prevIndex == size - 1) {
             tail = prev;
-        } else {
-            node.next = null;
         }
 
+        prev.next = next;
+
+        // for GC
         node.element = null;
+        node = null;
+
         size--;
         return true;
     }
