@@ -1,32 +1,66 @@
 package one.wangwei.algorithms.datastructures.list.impl;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 public class SinglyCircularLinkedListTest {
 
-    public static void main(String[] args) {
+    private SinglyCircularLinkedList<Integer> cyclicLinkedList;
 
-        SinglyCircularLinkedList<Integer> cyclicLinkedList = new SinglyCircularLinkedList<>();
+    @BeforeMethod
+    public void setUp() {
+        cyclicLinkedList = new SinglyCircularLinkedList<>();
         for (int i = 0; i < 5; i++) {
             cyclicLinkedList.add(i);
         }
-        cyclicLinkedList.add(4);
+    }
 
-//        cyclicLinkedList.remove(Integer.valueOf(4));
-//        System.out.println(cyclicLinkedList);
-
-        cyclicLinkedList.remove(5);
-        System.out.println(cyclicLinkedList);
-
-        cyclicLinkedList.remove(3);
-        System.out.println(cyclicLinkedList);
-
-        cyclicLinkedList.add(0, 99);
-        System.out.println(cyclicLinkedList);
-
-        cyclicLinkedList.remove(9);
-        System.out.println(cyclicLinkedList);
-
-        cyclicLinkedList.clear();
+    @Test
+    public void testAdd() {
+        cyclicLinkedList.add(1);
+        cyclicLinkedList.add(null);
 
     }
 
+    @Test
+    public void testAdd1() {
+        cyclicLinkedList.add(1, 1);
+        cyclicLinkedList.add(1, null);
+    }
+
+    @Test
+    public void testRemove() {
+        cyclicLinkedList.remove(1);
+    }
+
+    @Test
+    public void testRemove1() {
+        cyclicLinkedList.add(null);
+        cyclicLinkedList.remove(Integer.valueOf(999));
+        cyclicLinkedList.remove(null);
+        cyclicLinkedList.remove(Integer.valueOf(4));
+
+        System.out.println(cyclicLinkedList);
+    }
+
+    @Test
+    public void testSet() {
+        cyclicLinkedList.set(1, 87);
+    }
+
+    @Test
+    public void testClear() {
+        cyclicLinkedList.clear();
+    }
+
+    @Test
+    public void testContains() {
+        System.out.println(cyclicLinkedList.contains(3));
+        System.out.println(cyclicLinkedList.contains(null));
+    }
+
+    @Test
+    public void testSize() {
+        System.out.println(cyclicLinkedList.size());
+    }
 }

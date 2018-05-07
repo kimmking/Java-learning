@@ -24,10 +24,6 @@ public class SinglyCircularLinkedList<T> implements IList<T> {
      */
     private Node<T> tail = null;
 
-    public Node<T> getHead() {
-        return head;
-    }
-
     /**
      * 添加元素
      *
@@ -105,18 +101,18 @@ public class SinglyCircularLinkedList<T> implements IList<T> {
      */
     @Override
     public boolean remove(T element) {
-        if (element == null) {
-            for (Node<T> x = head; x != null; x = x.next) {
-                if (x.element == null) {
-                    return unlink(x);
-                }
+        if (head == null) {
+            return false;
+        }
+        Node<T> x = head;
+        for (int i = 0; i < size; i++) {
+            if (element == null && x.element == null) {
+                return unlink(x);
             }
-        } else {
-            for (Node<T> x = head; x != null; x = x.next) {
-                if (element.equals(x.element)) {
-                    return unlink(x);
-                }
+            if (element != null && element.equals(x.element)) {
+                return unlink(x);
             }
+            x = x.next;
         }
         return false;
     }
@@ -259,18 +255,18 @@ public class SinglyCircularLinkedList<T> implements IList<T> {
      */
     @Override
     public boolean contains(T element) {
-        if (element == null) {
-            for (Node<T> x = head; x != null; x = x.next) {
-                if (x.element == null) {
-                    return true;
-                }
+        if (head == null) {
+            return false;
+        }
+        Node<T> x = head;
+        for (int i = 0; i < size; i++) {
+            if (element == null && x.element == null) {
+                return true;
             }
-        } else {
-            for (Node<T> x = head; x != null; x = x.next) {
-                if (element.equals(x.element)) {
-                    return true;
-                }
+            if (element != null && element.equals(x.element)) {
+                return true;
             }
+            x = x.next;
         }
         return false;
     }
@@ -292,8 +288,8 @@ public class SinglyCircularLinkedList<T> implements IList<T> {
      */
     private class Node<T> {
 
-        private T element = null;
-        private Node<T> next = null;
+        private T element;
+        private Node<T> next;
 
         public Node(T element, Node<T> next) {
             this.element = element;
