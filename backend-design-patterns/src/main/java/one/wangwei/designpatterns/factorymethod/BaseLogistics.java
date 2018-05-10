@@ -1,6 +1,12 @@
 package one.wangwei.designpatterns.factorymethod;
 
-public abstract class Logistics {
+/**
+ * 物流
+ *
+ * @author wangwei
+ * @date 2018/05/10
+ */
+public abstract class BaseLogistics {
 
     public void planDelivery() {
         Transport transport = createTransport();

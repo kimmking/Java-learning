@@ -1,6 +1,12 @@
 package one.wangwei.designpatterns.factorymethod;
 
-public class RoadLogistics extends Logistics {
+/**
+ * 道路物流
+ *
+ * @author wangwei
+ * @date 2018/05/10
+ */
+public class RoadLogistics extends BaseLogistics {
 
     @Override
     protected Transport createTransport() {

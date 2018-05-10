@@ -7,12 +7,6 @@ public class App {
     public static void main(String[] args) {
         configure();
         runBusinessLogic();
-
-        Logistics logistics = new RoadLogistics();
-        logistics.planDelivery();
-
-        Logistics logistics1 = new SeaLogistics();
-        logistics1.planDelivery();
     }
 
     static void configure() {
