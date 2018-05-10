@@ -1,4 +1,4 @@
-package one.wangwei.designpatterns.factorymethod;
+package one.wangwei.designpatterns.factorymethod.logistics;
 
 /**
  * 运输

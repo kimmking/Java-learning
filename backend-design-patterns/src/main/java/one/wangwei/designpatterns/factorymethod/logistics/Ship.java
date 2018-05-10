@@ -1,4 +1,4 @@
-package one.wangwei.designpatterns.factorymethod;
+package one.wangwei.designpatterns.factorymethod.logistics;
 
 import lombok.extern.slf4j.Slf4j;
 

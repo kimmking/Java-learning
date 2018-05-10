@@ -1,4 +1,4 @@
-package one.wangwei.designpatterns.factorymethod;
+package one.wangwei.designpatterns.factorymethod.logistics;
 
 /**
  * 物流
@@ -13,6 +13,11 @@ public abstract class BaseLogistics {
         transport.deliver();
     }
 
+    /**
+     * 创建运输方式
+     *
+     * @return
+     */
     protected abstract Transport createTransport();
 
 }

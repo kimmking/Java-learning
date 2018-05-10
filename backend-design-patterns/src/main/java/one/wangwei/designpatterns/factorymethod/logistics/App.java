@@ -1,4 +1,4 @@
-package one.wangwei.designpatterns.factorymethod;
+package one.wangwei.designpatterns.factorymethod.logistics;
 
 /**
  * 客户端
@@ -6,7 +6,7 @@ package one.wangwei.designpatterns.factorymethod;
  * @author wangwei
  * @date 2018/05/10
  */
-public class Client {
+public class App {
 
     public static void main(String[] args) {
 
