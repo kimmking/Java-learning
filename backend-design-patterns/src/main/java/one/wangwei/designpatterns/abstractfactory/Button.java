@@ -1,7 +1,7 @@
 package one.wangwei.designpatterns.abstractfactory;
 
 /**
- * The interface Button.
+ * The type Button.
  *
  * @author wangwei
  * @date

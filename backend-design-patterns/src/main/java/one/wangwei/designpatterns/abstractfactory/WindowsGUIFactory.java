@@ -1,5 +1,8 @@
 package one.wangwei.designpatterns.abstractfactory;
 
+/**
+ * The type Windows gui factory.
+ */
 public class WindowsGUIFactory implements GUIFactory {
 
     @Override
