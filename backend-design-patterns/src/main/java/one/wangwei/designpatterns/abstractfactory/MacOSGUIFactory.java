@@ -1,6 +1,9 @@
 package one.wangwei.designpatterns.abstractfactory;
 
-public class MacOSUIFactory implements GUIFactory {
+/**
+ * The type Mac osgui factory.
+ */
+public class MacOSGUIFactory implements GUIFactory {
 
     @Override
     public Button createButton() {

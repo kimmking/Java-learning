@@ -1,6 +1,6 @@
 package one.wangwei.designpatterns.abstractfactory;
 
-public class WindowsCheckbox implements Checkbox {
+public class WindowsCheckbox extends Checkbox {
 
     @Override
     public void paint() {

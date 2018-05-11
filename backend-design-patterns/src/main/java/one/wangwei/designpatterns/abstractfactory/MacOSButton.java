@@ -1,6 +1,6 @@
 package one.wangwei.designpatterns.abstractfactory;
 
-public class MacOSButton implements Button {
+public class MacOSButton extends Button {
 
     @Override
     public void paint() {

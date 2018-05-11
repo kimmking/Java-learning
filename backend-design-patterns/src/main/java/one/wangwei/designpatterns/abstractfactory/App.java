@@ -1,8 +1,8 @@
 package one.wangwei.designpatterns.abstractfactory;
 
-public class Demo {
+public class App {
 
-    private static Application application;
+    private static Client application;
 
     public static void main(String[] args) {
         configure();
@@ -12,9 +12,9 @@ public class Demo {
     public static void configure() {
         String osName = System.getProperty("os.name");
         if (!osName.equalsIgnoreCase("Mac OS X")) {
-            application = new Application(new MacOSUIFactory());
+            application = new Client(new MacOSGUIFactory());
         } else {
-            application = new Application(new WindowsGUIFactory());
+            application = new Client(new WindowsGUIFactory());
         }
     }
 

@@ -5,11 +5,19 @@ package one.wangwei.designpatterns.factorymethod.button;
  */
 public abstract class Dialog {
 
+    /**
+     * Render window.
+     */
     public void renderWindow() {
         Button button = createButton();
         button.render();
     }
 
+    /**
+     * Create button button.
+     *
+     * @return the button
+     */
     public abstract Button createButton();
 
 }

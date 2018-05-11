@@ -1,7 +1,13 @@
 package one.wangwei.designpatterns.abstractfactory;
 
-public interface Checkbox {
+/**
+ * The interface Checkbox.
+ */
+public abstract class Checkbox {
 
+    /**
+     * Paint.
+     */
     public abstract void paint();
 
 }

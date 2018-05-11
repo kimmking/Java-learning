@@ -2,8 +2,8 @@
 ===
 
 # 创造型
-- 工厂模式（Factory Pattern）
-- 抽象工厂模式（Abstract Factory Pattern）
+- [工厂模式（Factory Pattern）](https://wangwei.one/posts/ae604d3e.html)
+- [抽象工厂模式（Abstract Factory Pattern）](https://wangwei.one/posts/33981b7f.html)
 - 单例模式（Singleton Pattern）
 - 建造者模式（Builder Pattern）
 - 原型模式（Prototype Pattern）

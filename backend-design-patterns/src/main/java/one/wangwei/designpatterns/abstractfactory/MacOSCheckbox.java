@@ -1,6 +1,6 @@
 package one.wangwei.designpatterns.abstractfactory;
 
-public class MacOSCheckbox implements Checkbox {
+public class MacOSCheckbox extends Checkbox {
 
     @Override
     public void paint() {

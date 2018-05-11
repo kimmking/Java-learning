@@ -1,15 +1,26 @@
 package one.wangwei.designpatterns.abstractfactory;
 
-public class Application {
+/**
+ * The type Application.
+ */
+public class Client {
 
     private Button button;
     private Checkbox checkbox;
 
-    public Application(GUIFactory factory) {
+    /**
+     * Instantiates a new Application.
+     *
+     * @param factory the factory
+     */
+    public Client(GUIFactory factory) {
         button = factory.createButton();
         checkbox = factory.createCheckbox();
     }
 
+    /**
+     * Paint.
+     */
     public void paint() {
         button.paint();
         checkbox.paint();
