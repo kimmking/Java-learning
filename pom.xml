@@ -2,18 +2,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>one.wangwei.backend</groupId>
-    <artifactId>backend-learning</artifactId>
+    <groupId>one.wangwei.java</groupId>
+    <artifactId>java-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>backend-java</module>
-        <module>backend-netty</module>
-        <module>backend-design-patterns</module>
-        <module>backend-algorithms</module>
+        <module>io</module>
+        <module>juc</module>
+        <module>rtti</module>
+        <module>socket</module>
+        <module>collection</module>
+        <module>utils</module>
     </modules>
     <packaging>pom</packaging>
 
-    <name>backend-learning</name>
+    <name>java-learning</name>
     <url>http://maven.apache.org</url>
 
     <dependencyManagement>
@@ -78,7 +80,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>backend-learning</finalName>
+        <finalName>java-learning</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
