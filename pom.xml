@@ -9,7 +9,6 @@
         <module>io</module>
         <module>juc</module>
         <module>rtti</module>
-        <module>socket</module>
         <module>collection</module>
         <module>utils</module>
     </modules>

@@ -1,4 +1,4 @@
-package one.wangwei.java;
+package one.wangwei.java.socket;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
