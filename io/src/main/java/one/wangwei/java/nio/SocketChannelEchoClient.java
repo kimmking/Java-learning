@@ -6,13 +6,13 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.Scanner;
 
-public class EchoClient {
+public class SocketChannelEchoClient {
 
     private static SocketChannel client;
     private static ByteBuffer buffer;
-    private static EchoClient instance;
+    private static SocketChannelEchoClient instance;
 
-    private EchoClient() {
+    private SocketChannelEchoClient() {
         try {
             client = SocketChannel.open();
             client.configureBlocking(false);
@@ -23,9 +23,9 @@ public class EchoClient {
         }
     }
 
-    public static EchoClient start() {
+    public static SocketChannelEchoClient start() {
         if (instance == null) {
-            instance = new EchoClient();
+            instance = new SocketChannelEchoClient();
         }
         return instance;
     }
@@ -51,9 +51,8 @@ public class EchoClient {
         return response;
     }
 
-
     public static void main(String[] args) {
-        EchoClient client = EchoClient.start();
+        SocketChannelEchoClient client = SocketChannelEchoClient.start();
         System.out.println("Enter your message:");
         Scanner scanner = new Scanner(System.in);
         client.sendMessage(scanner.nextLine());

@@ -11,7 +11,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 
-public class EchoServer {
+public class SocketChannelEchoServer {
 
     public static void main(String[] args) throws Exception {
 
@@ -61,7 +61,7 @@ public class EchoServer {
         String javaHome = System.getProperty("java.home");
         String javaBin = javaHome + File.separator + "bin" + File.separator + "java";
         String classpath = System.getProperty("java.class.path");
-        String className = EchoServer.class.getCanonicalName();
+        String className = SocketChannelEchoServer.class.getCanonicalName();
         ProcessBuilder processBuilder = new ProcessBuilder(javaBin, "-cp", classpath, className);
         return processBuilder.start();
     }
