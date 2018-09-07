@@ -6,7 +6,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class ChannelTransferExample {
+public class FileChannelExample {
 
     public static void main(String[] args) {
         try {
