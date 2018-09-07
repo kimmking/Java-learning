@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class AsynchronousFileChannelExample {
+public class AsyncFileChannelExample {
 
     public static void main(String[] args) {
         try {
