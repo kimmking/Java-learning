@@ -5,8 +5,8 @@
 // functionality for each type of event.
 package one.wangwei.java.rtti.innerclasses;
 
-import com.thinkingjava.rtti.innerclasses.controller.Controller;
-import com.thinkingjava.rtti.innerclasses.controller.Event;
+import one.wangwei.java.rtti.innerclasses.controller.Controller;
+import one.wangwei.java.rtti.innerclasses.controller.Event;
 
 public class GreenhouseControls extends Controller {
 

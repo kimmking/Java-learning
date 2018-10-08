@@ -9,16 +9,16 @@ public class ForNameCreator extends PetCreator {
 			new ArrayList<Class<? extends Pet>>();
 	
 	private static String[] typeNames = {
-		"com.thinkingjava.rtti.typeinfo.pets.Cat",
-		"com.thinkingjava.rtti.typeinfo.pets.Cymric",
-		"com.thinkingjava.rtti.typeinfo.pets.Dog",
-		"com.thinkingjava.rtti.typeinfo.pets.EgyptianMau",
-		"com.thinkingjava.rtti.typeinfo.pets.Hamster",
-		"com.thinkingjava.rtti.typeinfo.pets.Manx",
-		"com.thinkingjava.rtti.typeinfo.pets.Mouse",
-		"com.thinkingjava.rtti.typeinfo.pets.Mutt",
-		"com.thinkingjava.rtti.typeinfo.pets.Pug",
-		"com.thinkingjava.rtti.typeinfo.pets.Rodent",
+		"one.wangwei.java.rtti.typeinfo.pets.Cat",
+		"one.wangwei.java.rtti.typeinfo.pets.Cymric",
+		"one.wangwei.java.rtti.typeinfo.pets.Dog",
+		"one.wangwei.java.rtti.typeinfo.pets.EgyptianMau",
+		"one.wangwei.java.rtti.typeinfo.pets.Hamster",
+		"one.wangwei.java.rtti.typeinfo.pets.Manx",
+		"one.wangwei.java.rtti.typeinfo.pets.Mouse",
+		"one.wangwei.java.rtti.typeinfo.pets.Mutt",
+		"one.wangwei.java.rtti.typeinfo.pets.Pug",
+		"one.wangwei.java.rtti.typeinfo.pets.Rodent",
 	};
 	
 	@SuppressWarnings("unchecked")

@@ -1,13 +1,13 @@
 //: generics/WatercolorSets.java
 package one.wangwei.java.rtti.generics;
 
-import com.thinkingjava.rtti.generics.watercolors.*;
+import one.wangwei.java.rtti.generics.watercolors.*;
 import one.wangwei.java.rtti.generics.watercolors.Watercolors;
 
 import java.util.*;
 import static net.mindview.util.Print.*;
 import static net.mindview.util.Sets.*;
-import static com.thinkingjava.rtti.generics.watercolors.Watercolors.*;
+import static one.wangwei.java.rtti.generics.watercolors.Watercolors.*;
 import static one.wangwei.java.rtti.generics.watercolors.Watercolors.BRILLIANT_RED;
 
 public class WatercolorSets {

@@ -2,19 +2,19 @@ package one.wangwei.java.rtti.typeinfo;
 
 import java.util.HashMap;
 
-import com.thinkingjava.rtti.typeinfo.pets.Cat;
-import com.thinkingjava.rtti.typeinfo.pets.Cymric;
-import com.thinkingjava.rtti.typeinfo.pets.Dog;
-import com.thinkingjava.rtti.typeinfo.pets.ForNameCreator;
-import com.thinkingjava.rtti.typeinfo.pets.Hamster;
-import com.thinkingjava.rtti.typeinfo.pets.Manx;
-import com.thinkingjava.rtti.typeinfo.pets.Mouse;
-import com.thinkingjava.rtti.typeinfo.pets.Mutt;
-import com.thinkingjava.rtti.typeinfo.pets.Pet;
-import com.thinkingjava.rtti.typeinfo.pets.PetCreator;
-import com.thinkingjava.rtti.typeinfo.pets.Pug;
-import com.thinkingjava.rtti.typeinfo.pets.Rat;
-import com.thinkingjava.rtti.typeinfo.pets.Rodent;
+import one.wangwei.java.rtti.typeinfo.pets.Cat;
+import one.wangwei.java.rtti.typeinfo.pets.Cymric;
+import one.wangwei.java.rtti.typeinfo.pets.Dog;
+import one.wangwei.java.rtti.typeinfo.pets.ForNameCreator;
+import one.wangwei.java.rtti.typeinfo.pets.Hamster;
+import one.wangwei.java.rtti.typeinfo.pets.Manx;
+import one.wangwei.java.rtti.typeinfo.pets.Mouse;
+import one.wangwei.java.rtti.typeinfo.pets.Mutt;
+import one.wangwei.java.rtti.typeinfo.pets.Pet;
+import one.wangwei.java.rtti.typeinfo.pets.PetCreator;
+import one.wangwei.java.rtti.typeinfo.pets.Pug;
+import one.wangwei.java.rtti.typeinfo.pets.Rat;
+import one.wangwei.java.rtti.typeinfo.pets.Rodent;
 
 public class PetCount {
 	

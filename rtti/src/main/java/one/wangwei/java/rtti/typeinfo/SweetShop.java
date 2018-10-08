@@ -28,7 +28,7 @@ public class SweetShop {
 		new Candy();
 		print("After creating Candy");
 		try {
-			Class.forName("com.thinkingjava.rtti.typeinfo.Gum");
+			Class.forName("one.wangwei.java.rtti.typeinfo.Gum");
 		} catch (ClassNotFoundException e) {
 			print("Couldn't find Gum");
 		}

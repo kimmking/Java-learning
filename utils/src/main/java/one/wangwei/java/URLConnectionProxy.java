@@ -1,20 +1,17 @@
 package one.wangwei.java;
 
-import com.google.common.net.InetAddresses;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
-import java.util.Random;
 
 public class URLConnectionProxy {
 
     /**
      * The User Agent
      */
-    private static final String AGENT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)";
+    private static final String AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36";
 
     /**
      * Used to store the proxy settings
@@ -110,18 +107,20 @@ public class URLConnectionProxy {
          * activate this line if you are behind a proxy server - change the settings
          * accordingly
          */
-        Random random = new Random();
-        String address = InetAddresses.fromInteger(random.nextInt()).getHostAddress();
-        System.out.println("address=" + address);
-        con.setProxy("183.88.57.228", 80);
+//        Random random = new Random();
+//        String address = InetAddresses.fromInteger(random.nextInt()).getHostAddress();
+//        System.out.println("address=" + address);
+        con.setProxy("65.158.28.70", 60643);
         /**
          * activate this line if you are behind a proxy server with authentication -
          * change the settings accordingly
          */
-        String result = con.getString(url);
+        for (int i = 0; i < 5; i++) {
+            String result = con.getString(url);
+            System.out.println("URL: " + url);
+            System.out.println();
+            System.out.println(result);
+        }
 
-        System.out.println("URL: " + url);
-        System.out.println();
-        System.out.println(result);
     }
 }

@@ -3,7 +3,7 @@
 // {Args: 5000}
 package one.wangwei.java.rtti.innerclasses;
 
-import com.thinkingjava.rtti.innerclasses.controller.Event;
+import one.wangwei.java.rtti.innerclasses.controller.Event;
 
 public class GreenhouseController {
 	public static void main(String[] args) {

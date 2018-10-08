@@ -43,7 +43,7 @@ public class ToyTest {
 	public static void main(String[] args) {
 		Class c = null;
 		try {
-			c = Class.forName("com.thinkingjava.rtti.typeinfo.toys.FancyToy");
+			c = Class.forName("one.wangwei.java.rtti.typeinfo.toys.FancyToy");
 		} catch (ClassNotFoundException e) {
 			print("Can't find FancyToy");
 			System.exit(1);

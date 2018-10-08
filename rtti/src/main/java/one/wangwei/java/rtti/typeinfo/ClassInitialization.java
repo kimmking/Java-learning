@@ -16,7 +16,7 @@ public class ClassInitialization {
 		System.out.println(Initable.staticFinal2);
 		
 		System.out.println(Initable2.staticNonFinal);
-		Class  initable3 = Class.forName("com.thinkingjava.rtti.typeinfo.Initable3");
+		Class  initable3 = Class.forName("one.wangwei.java.rtti.typeinfo.Initable3");
 		
 		System.out.println(Initable3.staticNonFinal);
 	}

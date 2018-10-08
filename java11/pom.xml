@@ -8,17 +8,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>rtti</artifactId>
+    <artifactId>java11</artifactId>
 
-    <name>rtti</name>
+    <name>java11</name>
     <url>http://www.example.com</url>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <artifactId>utils</artifactId>
             <groupId>one.wangwei.java</groupId>
