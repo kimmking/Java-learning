@@ -22,19 +22,15 @@ public class NewSingleThreadExecutorDemo {
 
         for (int i = 0; i < 10; i++) {
             final int no = i;
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        System.out.println("start:" + no);
-                        Thread.sleep(1000L);
-                        System.out.println("end:" + no);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+            executorService.execute(() -> {
+                System.out.println("start:" + no);
+                try {
+                    Thread.sleep(1000L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            };
-            executorService.execute(runnable);
+                System.out.println("end:" + no);
+            });
         }
         executorService.shutdown();
         System.out.println("Main Thread End!");

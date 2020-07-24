@@ -6,12 +6,12 @@
     <artifactId>java-learning</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>tij4</module>
+        <module>java8</module>
         <module>io</module>
         <module>juc</module>
-        <module>rtti</module>
         <module>collection</module>
         <module>utils</module>
-        <module>java11</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -24,6 +24,46 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
+
+    <!-- 私库配置, 私库的优先级比中央仓库的优先级高 -->
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>mavencenter</id>
+            <name>maven center</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mavencenter</id>
+            <name>aliyun maven</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>
@@ -97,6 +137,18 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>4.5.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.imagej</groupId>
+                <artifactId>ij</artifactId>
+                <version>1.52g</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.crypto.tink</groupId>
+                <artifactId>tink</artifactId>
+                <version>1.2.0</version>
             </dependency>
 
         </dependencies>

@@ -15,11 +15,16 @@
 
     <dependencies>
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <artifactId>utils</artifactId>
             <groupId>one.wangwei.java</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>
-    
+
 </project>

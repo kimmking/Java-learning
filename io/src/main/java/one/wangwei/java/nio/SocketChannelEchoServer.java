@@ -31,6 +31,10 @@ public class SocketChannelEchoServer {
             while (iterator.hasNext()) {
                 SelectionKey selectionKey = iterator.next();
 
+                if (selectionKey.isConnectable()) {
+                    System.out.println("");
+                }
+
                 if (selectionKey.isAcceptable()) {
                     register(selector, serverSocket);
                 }
