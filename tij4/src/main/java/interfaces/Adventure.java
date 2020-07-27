@@ -1,5 +1,9 @@
-package interfaces;//: interfaces/Adventure.java
-// Multiple interfaces.
+package interfaces;
+// interfaces/Adventure.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Multiple interfaces
 
 interface CanFight {
   void fight();
@@ -15,7 +19,7 @@ interface CanFly {
 
 class ActionCharacter {
   public void fight() {}
-}	
+}
 
 class Hero extends ActionCharacter
     implements CanFight, CanSwim, CanFly {
@@ -35,4 +39,4 @@ public class Adventure {
     v(h); // Treat it as a CanFly
     w(h); // Treat it as an ActionCharacter
   }
-} ///:~
+}

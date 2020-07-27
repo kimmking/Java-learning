@@ -1,4 +1,8 @@
-package generics;//: generics/OrdinaryArguments.java
+package generics;
+// generics/OrdinaryArguments.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 class OrdinarySetter {
   void set(Base base) {
@@ -10,7 +14,7 @@ class DerivedSetter extends OrdinarySetter {
   void set(Derived derived) {
     System.out.println("DerivedSetter.set(Derived)");
   }
-}	
+}
 
 public class OrdinaryArguments {
   public static void main(String[] args) {
@@ -18,9 +22,11 @@ public class OrdinaryArguments {
     Derived derived = new Derived();
     DerivedSetter ds = new DerivedSetter();
     ds.set(derived);
-    ds.set(base); // Compiles: overloaded, not overridden!
+    // Compiles--overloaded, not overridden!:
+    ds.set(base);
   }
-} /* Output:
+}
+/* Output:
 DerivedSetter.set(Derived)
 OrdinarySetter.set(Base)
-*///:~
+*/

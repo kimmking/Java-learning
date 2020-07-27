@@ -1,6 +1,10 @@
-package interfaces;//: interfaces/RandVals.java
+package interfaces;
+// interfaces/RandVals.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // Initializing interface fields with
-// non-constant initializers.
+// non-constant initializers
 import java.util.*;
 
 public interface RandVals {
@@ -9,4 +13,4 @@ public interface RandVals {
   long RANDOM_LONG = RAND.nextLong() * 10;
   float RANDOM_FLOAT = RAND.nextLong() * 10;
   double RANDOM_DOUBLE = RAND.nextDouble() * 10;
-} ///:~
+}

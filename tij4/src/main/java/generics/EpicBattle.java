@@ -1,14 +1,21 @@
-package generics;//: generics/EpicBattle.java
-// Demonstrating bounds in Java generics.
+package generics;
+// generics/EpicBattle.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Bounds in Java generics
 import java.util.*;
 
 interface SuperPower {}
+
 interface XRayVision extends SuperPower {
   void seeThroughWalls();
 }
+
 interface SuperHearing extends SuperPower {
   void hearSubtleNoises();
 }
+
 interface SuperSmell extends SuperPower {
   void trackBySmell();
 }
@@ -25,20 +32,24 @@ extends SuperHero<POWER> {
   void see() { power.seeThroughWalls(); }
 }
 
-class CanineHero<POWER extends SuperHearing & SuperSmell>
+class
+CanineHero<POWER extends SuperHearing & SuperSmell>
 extends SuperHero<POWER> {
   CanineHero(POWER power) { super(power); }
   void hear() { power.hearSubtleNoises(); }
   void smell() { power.trackBySmell(); }
 }
 
-class SuperHearSmell implements SuperHearing, SuperSmell {
+class SuperHearSmell
+implements SuperHearing, SuperSmell {
+  @Override
   public void hearSubtleNoises() {}
+  @Override
   public void trackBySmell() {}
 }
 
-class DogBoy extends CanineHero<SuperHearSmell> {
-  DogBoy() { super(new SuperHearSmell()); }
+class DogPerson extends CanineHero<SuperHearSmell> {
+  DogPerson() { super(new SuperHearSmell()); }
 }
 
 public class EpicBattle {
@@ -53,12 +64,12 @@ public class EpicBattle {
     hero.getPower().trackBySmell();
   }
   public static void main(String[] args) {
-    DogBoy dogBoy = new DogBoy();
-    useSuperHearing(dogBoy);
-    superFind(dogBoy);
+    DogPerson dogPerson = new DogPerson();
+    useSuperHearing(dogPerson);
+    superFind(dogPerson);
     // You can do this:
-    List<? extends SuperHearing> audioBoys;
+    List<? extends SuperHearing> audioPeople;
     // But you can't do this:
-    // List<? extends SuperHearing & SuperSmell> dogBoys;
+    // List<? extends SuperHearing & SuperSmell> dogPs;
   }
-} ///:~
+}

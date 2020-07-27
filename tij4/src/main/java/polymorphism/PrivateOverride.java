@@ -1,10 +1,15 @@
-//: polymorphism/PrivateOverride.java
-// Trying to override a private method.
+// polymorphism/PrivateOverride.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Trying to override a private method
+// {java polymorphism.PrivateOverride}
 package polymorphism;
-import static net.mindview.util.Print.*;
 
 public class PrivateOverride {
-  private void f() { print("private f()"); }
+  private void f() {
+    System.out.println("private f()");
+  }
   public static void main(String[] args) {
     PrivateOverride po = new Derived();
     po.f();
@@ -12,7 +17,8 @@ public class PrivateOverride {
 }
 
 class Derived extends PrivateOverride {
-  public void f() { print("public f()"); }
-} /* Output:
+  public void f() { System.out.println("public f()"); }
+}
+/* Output:
 private f()
-*///:~
+*/

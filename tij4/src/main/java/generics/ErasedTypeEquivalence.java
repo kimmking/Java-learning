@@ -1,4 +1,8 @@
-package generics;//: generics/ErasedTypeEquivalence.java
+package generics;
+// generics/ErasedTypeEquivalence.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.util.*;
 
 public class ErasedTypeEquivalence {
@@ -7,6 +11,7 @@ public class ErasedTypeEquivalence {
     Class c2 = new ArrayList<Integer>().getClass();
     System.out.println(c1 == c2);
   }
-} /* Output:
+}
+/* Output:
 true
-*///:~
+*/

@@ -1,18 +1,25 @@
-package innerclasses;//: innerclasses/Parcel11.java
-// Nested classes (static inner classes).
+package innerclasses;
+// innerclasses/Parcel11.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Nested classes (static inner classes)
 
 public class Parcel11 {
-  private static class ParcelContents implements Contents {
+  private static class
+  ParcelContents implements Contents {
     private int i = 11;
+    @Override
     public int value() { return i; }
   }
-  protected static class ParcelDestination
+  protected static final class ParcelDestination
   implements Destination {
     private String label;
     private ParcelDestination(String whereTo) {
       label = whereTo;
     }
-    public String readLabel() { return label; }	
+    @Override
+    public String readLabel() { return label; }
     // Nested classes can contain other static elements:
     public static void f() {}
     static int x = 10;
@@ -31,4 +38,4 @@ public class Parcel11 {
     Contents c = contents();
     Destination d = destination("Tasmania");
   }
-} ///:~
+}

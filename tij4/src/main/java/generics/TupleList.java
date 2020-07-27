@@ -1,19 +1,24 @@
-package generics;//: generics/TupleList.java
-// Combining generic types to make complex generic types.
+package generics;
+// generics/TupleList.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Combining generic types to make complex generic types
 import java.util.*;
-import net.mindview.util.*;
+import onjava.*;
+import java.util.stream.*;
 
-public class TupleList<A,B,C,D>
-extends ArrayList<FourTuple<A,B,C,D>> {
+public class TupleList<A, B, C, D>
+extends ArrayList<Tuple4<A, B, C, D>> {
   public static void main(String[] args) {
     TupleList<Vehicle, Amphibian, String, Integer> tl =
-      new TupleList<Vehicle, Amphibian, String, Integer>();
-    tl.add(TupleTest.h());
-    tl.add(TupleTest.h());
-    for(FourTuple<Vehicle, Amphibian,String,Integer> i: tl)
-      System.out.println(i);
+      new TupleList<>();
+    tl.add(TupleTest2.h());
+    tl.add(TupleTest2.h());
+    tl.forEach(System.out::println);
   }
-} /* Output: (75% match)
-(Vehicle@11b86e7, Amphibian@35ce36, hi, 47)
-(Vehicle@757aef, Amphibian@d9f9c3, hi, 47)
-*///:~
+}
+/* Output:
+(Vehicle@7cca494b, Amphibian@7ba4f24f, hi, 47)
+(Vehicle@3b9a45b3, Amphibian@7699a589, hi, 47)
+*/

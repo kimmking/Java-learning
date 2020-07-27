@@ -1,5 +1,9 @@
-package polymorphism;//: polymorphism/StaticPolymorphism.java
-// Static methods are not polymorphic.
+package polymorphism;
+// polymorphism/StaticPolymorphism.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Static methods are not polymorphic
 
 class StaticSuper {
   public static String staticGet() {
@@ -14,6 +18,7 @@ class StaticSub extends StaticSuper {
   public static String staticGet() {
     return "Derived staticGet()";
   }
+  @Override
   public String dynamicGet() {
     return "Derived dynamicGet()";
   }
@@ -22,10 +27,11 @@ class StaticSub extends StaticSuper {
 public class StaticPolymorphism {
   public static void main(String[] args) {
     StaticSuper sup = new StaticSub(); // Upcast
-    System.out.println(sup.staticGet());
+    System.out.println(StaticSuper.staticGet());
     System.out.println(sup.dynamicGet());
   }
-} /* Output:
+}
+/* Output:
 Base staticGet()
 Derived dynamicGet()
-*///:~
+*/

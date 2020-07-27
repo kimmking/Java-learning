@@ -1,16 +1,22 @@
-package strings;//: strings/WhitherStringBuilder.java
+package strings;
+// strings/WhitherStringBuilder.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class WhitherStringBuilder {
   public String implicit(String[] fields) {
     String result = "";
-    for(int i = 0; i < fields.length; i++)
-      result += fields[i];
+    for(String field : fields) {
+      result += field;
+    }
     return result;
   }
   public String explicit(String[] fields) {
     StringBuilder result = new StringBuilder();
-    for(int i = 0; i < fields.length; i++)
-      result.append(fields[i]);
+    for(String field : fields) {
+      result.append(field);
+    }
     return result.toString();
   }
-} ///:~
+}

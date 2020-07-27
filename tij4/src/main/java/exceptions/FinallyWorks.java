@@ -1,5 +1,9 @@
-package exceptions;//: exceptions/FinallyWorks.java
-// The finally clause is always executed.
+package exceptions;
+// exceptions/FinallyWorks.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// The finally clause is always executed
 
 class ThreeException extends Exception {}
 
@@ -20,9 +24,10 @@ public class FinallyWorks {
       }
     }
   }
-} /* Output:
+}
+/* Output:
 ThreeException
 In finally clause
 No exception
 In finally clause
-*///:~
+*/

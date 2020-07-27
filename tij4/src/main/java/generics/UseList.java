@@ -1,8 +1,16 @@
-package generics;//: generics/UseList.java
-// {CompileTimeError} (Won't compile)
-import java.util.*;
+package generics;
+// generics/UseList.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// {WillNotCompile}
 
-public class UseList<W,T> {
-  void f(List<T> v) {}
-  void f(List<W> v) {}
-} ///:~
+import java.util.List;
+
+public class UseList<W, T> {
+    void f2(List<T> v) {
+    }
+
+    void f(List<W> v) {
+    }
+}

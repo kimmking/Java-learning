@@ -1,33 +1,46 @@
-//: typeinfo/FamilyVsExactType.java
+// typeinfo/FamilyVsExactType.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // The difference between instanceof and class
+// {java typeinfo.FamilyVsExactType}
 package typeinfo;
-import static net.mindview.util.Print.*;
 
 class Base {}
-class Derived extends Base {}	
+class Derived extends Base {}
 
 public class FamilyVsExactType {
   static void test(Object x) {
-    print("Testing x of type " + x.getClass());
-    print("x instanceof Base " + (x instanceof Base));
-    print("x instanceof Derived "+ (x instanceof Derived));
-    print("Base.isInstance(x) "+ Base.class.isInstance(x));
-    print("Derived.isInstance(x) " +
+    System.out.println(
+      "Testing x of type " + x.getClass());
+    System.out.println(
+      "x instanceof Base " + (x instanceof Base));
+    System.out.println(
+      "x instanceof Derived " + (x instanceof Derived));
+    System.out.println(
+      "Base.isInstance(x) " + Base.class.isInstance(x));
+    System.out.println(
+      "Derived.isInstance(x) " +
       Derived.class.isInstance(x));
-    print("x.getClass() == Base.class " +
+    System.out.println(
+      "x.getClass() == Base.class " +
       (x.getClass() == Base.class));
-    print("x.getClass() == Derived.class " +
+    System.out.println(
+      "x.getClass() == Derived.class " +
       (x.getClass() == Derived.class));
-    print("x.getClass().equals(Base.class)) "+
+    System.out.println(
+      "x.getClass().equals(Base.class)) "+
       (x.getClass().equals(Base.class)));
-    print("x.getClass().equals(Derived.class)) " +
+    System.out.println(
+      "x.getClass().equals(Derived.class)) " +
       (x.getClass().equals(Derived.class)));
   }
   public static void main(String[] args) {
     test(new Base());
     test(new Derived());
-  }	
-} /* Output:
+  }
+}
+/* Output:
 Testing x of type class typeinfo.Base
 x instanceof Base true
 x instanceof Derived false
@@ -46,4 +59,4 @@ x.getClass() == Base.class false
 x.getClass() == Derived.class true
 x.getClass().equals(Base.class)) false
 x.getClass().equals(Derived.class)) true
-*///:~
+*/

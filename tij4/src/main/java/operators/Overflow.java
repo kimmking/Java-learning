@@ -1,5 +1,9 @@
-package operators;//: operators/Overflow.java
-// Surprise! Java lets you overflow.
+package operators;
+// operators/Overflow.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Surprise! Java lets you overflow
 
 public class Overflow {
   public static void main(String[] args) {
@@ -8,7 +12,8 @@ public class Overflow {
     int bigger = big * 4;
     System.out.println("bigger = " + bigger);
   }
-} /* Output:
+}
+/* Output:
 big = 2147483647
 bigger = -4
-*///:~
+*/

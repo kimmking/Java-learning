@@ -1,8 +1,16 @@
-//: polymorphism/shape/Circle.java
+// polymorphism/shape/Circle.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 package polymorphism.shape;
-import static net.mindview.util.Print.*;
 
 public class Circle extends Shape {
-  public void draw() { print("Circle.draw()"); }
-  public void erase() { print("Circle.erase()"); }
-} ///:~
+  @Override
+  public void draw() {
+    System.out.println("Circle.draw()");
+  }
+  @Override
+  public void erase() {
+    System.out.println("Circle.erase()");
+  }
+}

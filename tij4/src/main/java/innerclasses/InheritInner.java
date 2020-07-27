@@ -1,12 +1,16 @@
-package innerclasses;//: innerclasses/InheritInner.java
-// Inheriting an inner class.
+package innerclasses;
+// innerclasses/InheritInner.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Inheriting an inner class
 
 class WithInner {
   class Inner {}
 }
 
 public class InheritInner extends WithInner.Inner {
-  //! InheritInner() {} // Won't compile
+  //- InheritInner() {} // Won't compile
   InheritInner(WithInner wi) {
     wi.super();
   }
@@ -14,4 +18,4 @@ public class InheritInner extends WithInner.Inner {
     WithInner wi = new WithInner();
     InheritInner ii = new InheritInner(wi);
   }
-} ///:~
+}

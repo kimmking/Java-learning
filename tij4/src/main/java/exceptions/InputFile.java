@@ -1,5 +1,9 @@
-package exceptions;//: exceptions/InputFile.java
-// Paying attention to exceptions in constructors.
+package exceptions;
+// exceptions/InputFile.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Paying attention to exceptions in constructors
 import java.io.*;
 
 public class InputFile {
@@ -41,4 +45,4 @@ public class InputFile {
       throw new RuntimeException("in.close() failed");
     }
   }
-} ///:~
+}

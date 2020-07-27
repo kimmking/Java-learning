@@ -1,66 +1,75 @@
-package exceptions;//: exceptions/CleanupIdiom.java
-// Each disposable object must be followed by a try-finally
+package exceptions;// exceptions/CleanupIdiom.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Disposable objects must be followed by a try-finally
 
 class NeedsCleanup { // Construction can't fail
-  private static long counter = 1;
-  private final long id = counter++;
-  public void dispose() {
-    System.out.println("NeedsCleanup " + id + " disposed");
-  }
+    private static long counter = 1;
+    private final long id = counter++;
+
+    public void dispose() {
+        System.out.println(
+                "NeedsCleanup " + id + " disposed");
+    }
 }
 
-class ConstructionException extends Exception {}
+class ConstructionException extends Exception {
+}
 
 class NeedsCleanup2 extends NeedsCleanup {
-  // Construction can fail:
-  public NeedsCleanup2() throws ConstructionException {}
+    // Construction can fail:
+    NeedsCleanup2() throws ConstructionException {
+    }
 }
 
 public class CleanupIdiom {
-  public static void main(String[] args) {
-    // Section 1:
-    NeedsCleanup nc1 = new NeedsCleanup();
-    try {
-      // ...
-    } finally {
-      nc1.dispose();
-    }
-
-    // Section 2:
-    // If construction cannot fail you can group objects:
-    NeedsCleanup nc2 = new NeedsCleanup();
-    NeedsCleanup nc3 = new NeedsCleanup();
-    try {
-      // ...
-    } finally {
-      nc3.dispose(); // Reverse order of construction
-      nc2.dispose();
-    }
-
-    // Section 3:
-    // If construction can fail you must guard each one:
-    try {
-      NeedsCleanup2 nc4 = new NeedsCleanup2();
-      try {
-        NeedsCleanup2 nc5 = new NeedsCleanup2();
+    public static void main(String[] args) {
+        // [1]:
+        NeedsCleanup nc1 = new NeedsCleanup();
         try {
-          // ...
+            // ...
         } finally {
-          nc5.dispose();
+            nc1.dispose();
         }
-      } catch(ConstructionException e) { // nc5 constructor
-        System.out.println(e);
-      } finally {
-        nc4.dispose();
-      }
-    } catch(ConstructionException e) { // nc4 constructor
-      System.out.println(e);
+
+        // [2]:
+        // If construction cannot fail,
+        // you can group objects:
+        NeedsCleanup nc2 = new NeedsCleanup();
+        NeedsCleanup nc3 = new NeedsCleanup();
+        try {
+            // ...
+        } finally {
+            nc3.dispose(); // Reverse order of construction
+            nc2.dispose();
+        }
+
+        // [3]:
+        // If construction can fail you must guard each one:
+        try {
+            NeedsCleanup2 nc4 = new NeedsCleanup2();
+            try {
+                NeedsCleanup2 nc5 = new NeedsCleanup2();
+                try {
+                    // ...
+                } finally {
+                    nc5.dispose();
+                }
+            } catch (ConstructionException e) { // nc5 const.
+                System.out.println(e);
+            } finally {
+                nc4.dispose();
+            }
+        } catch (ConstructionException e) { // nc4 const.
+            System.out.println(e);
+        }
     }
-  }
-} /* Output:
+}
+/* Output:
 NeedsCleanup 1 disposed
 NeedsCleanup 3 disposed
 NeedsCleanup 2 disposed
 NeedsCleanup 5 disposed
 NeedsCleanup 4 disposed
-*///:~
+*/

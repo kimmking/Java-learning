@@ -1,4 +1,8 @@
-package operators;//: operators/Exponents.java
+package operators;
+// operators/Exponents.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // "e" means "10 to the power."
 
 public class Exponents {
@@ -11,7 +15,8 @@ public class Exponents {
     double expDouble2 = 47e47; // Automatically double
     System.out.println(expDouble);
   }
-} /* Output:
+}
+/* Output:
 1.39E-43
 4.7E48
-*///:~
+*/

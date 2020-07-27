@@ -1,10 +1,13 @@
-package typeinfo;//: typeinfo/ShowMethods.java
+package typeinfo;
+// typeinfo/ShowMethods.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // Using reflection to show all the methods of a class,
-// even if the methods are defined in the base class.
-// {Args: ShowMethods}
+// even if the methods are defined in the base class
+// {java ShowMethods ShowMethods}
 import java.lang.reflect.*;
 import java.util.regex.*;
-import static net.mindview.util.Print.*;
 
 public class ShowMethods {
   private static String usage =
@@ -16,7 +19,7 @@ public class ShowMethods {
   private static Pattern p = Pattern.compile("\\w+\\.");
   public static void main(String[] args) {
     if(args.length < 1) {
-      print(usage);
+      System.out.println(usage);
       System.exit(0);
     }
     int lines = 0;
@@ -26,39 +29,44 @@ public class ShowMethods {
       Constructor[] ctors = c.getConstructors();
       if(args.length == 1) {
         for(Method method : methods)
-          print(
-            p.matcher(method.toString()).replaceAll(""));
+          System.out.println(
+            p.matcher(
+              method.toString()).replaceAll(""));
         for(Constructor ctor : ctors)
-          print(p.matcher(ctor.toString()).replaceAll(""));
+          System.out.println(
+            p.matcher(ctor.toString()).replaceAll(""));
         lines = methods.length + ctors.length;
       } else {
         for(Method method : methods)
-          if(method.toString().indexOf(args[1]) != -1) {
-            print(
-              p.matcher(method.toString()).replaceAll(""));
+          if(method.toString().contains(args[1])) {
+            System.out.println(p.matcher(
+              method.toString()).replaceAll(""));
             lines++;
           }
         for(Constructor ctor : ctors)
-          if(ctor.toString().indexOf(args[1]) != -1) {
-            print(p.matcher(
+          if(ctor.toString().contains(args[1])) {
+            System.out.println(p.matcher(
               ctor.toString()).replaceAll(""));
             lines++;
           }
       }
     } catch(ClassNotFoundException e) {
-      print("No such class: " + e);
+      System.out.println("No such class: " + e);
     }
   }
-} /* Output:
+}
+/* Output:
 public static void main(String[])
-public native int hashCode()
-public final native Class getClass()
-public final void wait(long,int) throws InterruptedException
 public final void wait() throws InterruptedException
-public final native void wait(long) throws InterruptedException
+public final void wait(long,int) throws
+InterruptedException
+public final native void wait(long) throws
+InterruptedException
 public boolean equals(Object)
 public String toString()
+public native int hashCode()
+public final native Class getClass()
 public final native void notify()
 public final native void notifyAll()
 public ShowMethods()
-*///:~
+*/

@@ -1,13 +1,19 @@
-package exceptions;//: exceptions/LostMessage.java
-// How an exception can be lost.
+package exceptions;
+// exceptions/LostMessage.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// How an exception can be lost
 
 class VeryImportantException extends Exception {
+  @Override
   public String toString() {
     return "A very important exception!";
   }
 }
 
 class HoHumException extends Exception {
+  @Override
   public String toString() {
     return "A trivial exception";
   }
@@ -28,10 +34,12 @@ public class LostMessage {
       } finally {
         lm.dispose();
       }
-    } catch(Exception e) {
+    } catch(VeryImportantException |
+            HoHumException e) {
       System.out.println(e);
     }
   }
-} /* Output:
+}
+/* Output:
 A trivial exception
-*///:~
+*/

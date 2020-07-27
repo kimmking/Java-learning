@@ -1,5 +1,8 @@
-package operators;//: operators/TernaryIfElse.java
-import static net.mindview.util.Print.*;
+package operators;
+// operators/TernaryIfElse.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class TernaryIfElse {
   static int ternary(int i) {
@@ -12,14 +15,15 @@ public class TernaryIfElse {
       return i * 10;
   }
   public static void main(String[] args) {
-    print(ternary(9));
-    print(ternary(10));
-    print(standardIfElse(9));
-    print(standardIfElse(10));
+    System.out.println(ternary(9));
+    System.out.println(ternary(10));
+    System.out.println(standardIfElse(9));
+    System.out.println(standardIfElse(10));
   }
-} /* Output:
+}
+/* Output:
 900
 100
 900
 100
-*///:~
+*/

@@ -1,5 +1,9 @@
-package innerclasses;//: innerclasses/Parcel6.java
-// Nesting a class within a scope.
+package innerclasses;
+// innerclasses/Parcel6.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Nesting a class within a scope
 
 public class Parcel6 {
   private void internalTracking(boolean b) {
@@ -15,11 +19,11 @@ public class Parcel6 {
       String s = ts.getSlip();
     }
     // Can't use it here! Out of scope:
-    //! TrackingSlip ts = new TrackingSlip("x");
-  }	
+    //- TrackingSlip ts = new TrackingSlip("x");
+  }
   public void track() { internalTracking(true); }
   public static void main(String[] args) {
     Parcel6 p = new Parcel6();
     p.track();
   }
-} ///:~
+}

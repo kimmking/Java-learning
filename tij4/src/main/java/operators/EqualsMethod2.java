@@ -1,5 +1,9 @@
-package operators;//: operators/EqualsMethod2.java
-// Default equals() does not compare contents.
+package operators;
+// operators/EqualsMethod2.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Default equals() does not compare contents
 
 class Value {
   int i;
@@ -12,6 +16,7 @@ public class EqualsMethod2 {
     v1.i = v2.i = 100;
     System.out.println(v1.equals(v2));
   }
-} /* Output:
+}
+/* Output:
 false
-*///:~
+*/

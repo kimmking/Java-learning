@@ -1,21 +1,28 @@
-package strings;//: strings/Finding.java
+package strings;
+// strings/Finding.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.util.regex.*;
-import static net.mindview.util.Print.*;
 
 public class Finding {
   public static void main(String[] args) {
     Matcher m = Pattern.compile("\\w+")
-      .matcher("Evening is full of the linnet's wings");
+      .matcher(
+        "Evening is full of the linnet's wings");
     while(m.find())
-      printnb(m.group() + " ");
-    print();
+      System.out.print(m.group() + " ");
+    System.out.println();
     int i = 0;
     while(m.find(i)) {
-      printnb(m.group() + " ");
+      System.out.print(m.group() + " ");
       i++;
     }
   }
-} /* Output:
+}
+/* Output:
 Evening is full of the linnet s wings
-Evening vening ening ning ing ng g is is s full full ull ll l of of f the the he e linnet linnet innet nnet net et t s s wings wings ings ngs gs s
-*///:~
+Evening vening ening ning ing ng g is is s full full
+ull ll l of of f the the he e linnet linnet innet nnet
+net et t s s wings wings ings ngs gs s
+*/

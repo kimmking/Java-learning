@@ -1,22 +1,30 @@
-package typeinfo;//: typeinfo/ModifyingPrivateFields.java
+package typeinfo;
+// typeinfo/ModifyingPrivateFields.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.lang.reflect.*;
 
 class WithPrivateFinalField {
   private int i = 1;
   private final String s = "I'm totally safe";
   private String s2 = "Am I safe?";
+  @Override
   public String toString() {
     return "i = " + i + ", " + s + ", " + s2;
   }
 }
 
 public class ModifyingPrivateFields {
-  public static void main(String[] args) throws Exception {
-    WithPrivateFinalField pf = new WithPrivateFinalField();
+  public static void
+  main(String[] args) throws Exception {
+    WithPrivateFinalField pf =
+      new WithPrivateFinalField();
     System.out.println(pf);
     Field f = pf.getClass().getDeclaredField("i");
     f.setAccessible(true);
-    System.out.println("f.getInt(pf): " + f.getInt(pf));
+    System.out.println(
+      "f.getInt(pf): " + f.getInt(pf));
     f.setInt(pf, 47);
     System.out.println(pf);
     f = pf.getClass().getDeclaredField("s");
@@ -30,7 +38,8 @@ public class ModifyingPrivateFields {
     f.set(pf, "No, you're not!");
     System.out.println(pf);
   }
-} /* Output:
+}
+/* Output:
 i = 1, I'm totally safe, Am I safe?
 f.getInt(pf): 1
 i = 47, I'm totally safe, Am I safe?
@@ -38,4 +47,4 @@ f.get(pf): I'm totally safe
 i = 47, I'm totally safe, Am I safe?
 f.get(pf): Am I safe?
 i = 47, I'm totally safe, No, you're not!
-*///:~
+*/

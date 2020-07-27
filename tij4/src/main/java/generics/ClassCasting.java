@@ -1,4 +1,8 @@
-package generics;//: generics/ClassCasting.java
+package generics;
+// generics/ClassCasting.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.io.*;
 import java.util.*;
 
@@ -9,7 +13,7 @@ public class ClassCasting {
       new FileInputStream(args[0]));
       // Won't Compile:
 //    List<Widget> lw1 =
-//    List<Widget>.class.cast(in.readObject());
+//    List<>.class.cast(in.readObject());
     List<Widget> lw2 = List.class.cast(in.readObject());
   }
-} ///:~
+}

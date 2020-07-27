@@ -1,31 +1,40 @@
-//: annotations/HashSetTest.java
+// annotations/HashSetTest.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// {java onjava.atunit.AtUnit
+// build/classes/main/annotations/HashSetTest.class}
 package annotations;
-import java.util.*;
-import net.mindview.atunit.*;
-import net.mindview.util.*;
+
+import onjava.atunit.Test;
+
+import java.util.HashSet;
 
 public class HashSetTest {
-  HashSet<String> testObject = new HashSet<String>();
-  @Test void initialization() {
-    assert testObject.isEmpty();
-  }
-  @Test void _contains() {
-    testObject.add("one");
-    assert testObject.contains("one");
-  }
-  @Test void _remove() {
-    testObject.add("one");
-    testObject.remove("one");
-    assert testObject.isEmpty();
-  }
-  public static void main(String[] args) throws Exception {
-    OSExecute.command(
-      "java net.mindview.atunit.AtUnit HashSetTest");
-  }
-} /* Output:
+    HashSet<String> testObject = new HashSet<>();
+
+    @Test
+    void initialization() {
+        assert testObject.isEmpty();
+    }
+
+    @Test
+    void tContains() {
+        testObject.add("one");
+        assert testObject.contains("one");
+    }
+
+    @Test
+    void tRemove() {
+        testObject.add("one");
+        testObject.remove("one");
+        assert testObject.isEmpty();
+    }
+}
+/* Output:
 annotations.HashSetTest
   . initialization
-  . _remove
-  . _contains
+  . tRemove
+  . tContains
 OK (3 tests)
-*///:~
+*/

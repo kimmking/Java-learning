@@ -1,19 +1,24 @@
-package generics;//: generics/DogsAndRobots.java
-// No latent typing in Java
+package generics;
+// generics/DogsAndRobots.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// No (direct) latent typing in Java
 import typeinfo.pets.*;
-import static net.mindview.util.Print.*;
 
 class PerformingDog extends Dog implements Performs {
-  public void speak() { print("Woof!"); }
-  public void sit() { print("Sitting"); }
+  @Override
+  public void speak() { System.out.println("Woof!"); }
+  @Override
+  public void sit() { System.out.println("Sitting"); }
   public void reproduce() {}
 }
 
 class Robot implements Performs {
-  public void speak() { print("Click!"); }
-  public void sit() { print("Clank!"); }
+  public void speak() { System.out.println("Click!"); }
+  public void sit() { System.out.println("Clank!"); }
   public void oilChange() {}
-}	
+}
 
 class Communicate {
   public static <T extends Performs>
@@ -25,14 +30,13 @@ class Communicate {
 
 public class DogsAndRobots {
   public static void main(String[] args) {
-    PerformingDog d = new PerformingDog();
-    Robot r = new Robot();
-    Communicate.perform(d);
-    Communicate.perform(r);
+    Communicate.perform(new PerformingDog());
+    Communicate.perform(new Robot());
   }
-} /* Output:
+}
+/* Output:
 Woof!
 Sitting
 Click!
 Clank!
-*///:~
+*/

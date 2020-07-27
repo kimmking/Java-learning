@@ -1,4 +1,8 @@
-package generics;//: generics/ArrayMaker.java
+package generics;
+// generics/ArrayMaker.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.lang.reflect.*;
 import java.util.*;
 
@@ -11,10 +15,11 @@ public class ArrayMaker<T> {
   }
   public static void main(String[] args) {
     ArrayMaker<String> stringMaker =
-      new ArrayMaker<String>(String.class);
+      new ArrayMaker<>(String.class);
     String[] stringArray = stringMaker.create(9);
     System.out.println(Arrays.toString(stringArray));
   }
-} /* Output:
+}
+/* Output:
 [null, null, null, null, null, null, null, null, null]
-*///:~
+*/

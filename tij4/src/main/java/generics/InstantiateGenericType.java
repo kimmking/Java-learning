@@ -1,32 +1,46 @@
-package generics;//: generics/InstantiateGenericType.java
-import static net.mindview.util.Print.*;
+package generics;
+// generics/InstantiateGenericType.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+import java.util.function.*;
 
-class ClassAsFactory<T> {
-  T x;
-  public ClassAsFactory(Class<T> kind) {
+class ClassAsFactory<T> implements Supplier<T> {
+  Class<T> kind;
+  ClassAsFactory(Class<T> kind) {
+    this.kind = kind;
+  }
+  @Override
+  public T get() {
     try {
-      x = kind.newInstance();
-    } catch(Exception e) {
+      return kind.newInstance();
+    } catch(InstantiationException |
+            IllegalAccessException e) {
       throw new RuntimeException(e);
     }
   }
 }
 
-class Employee {}	
+class Employee {
+  @Override
+  public String toString() { return "Employee"; }
+}
 
 public class InstantiateGenericType {
   public static void main(String[] args) {
     ClassAsFactory<Employee> fe =
-      new ClassAsFactory<Employee>(Employee.class);
-    print("ClassAsFactory<Employee> succeeded");
+      new ClassAsFactory<>(Employee.class);
+    System.out.println(fe.get());
+    ClassAsFactory<Integer> fi =
+      new ClassAsFactory<>(Integer.class);
     try {
-      ClassAsFactory<Integer> fi =
-        new ClassAsFactory<Integer>(Integer.class);
+      System.out.println(fi.get());
     } catch(Exception e) {
-      print("ClassAsFactory<Integer> failed");
+      System.out.println(e.getMessage());
     }
   }
-} /* Output:
-ClassAsFactory<Employee> succeeded
-ClassAsFactory<Integer> failed
-*///:~
+}
+/* Output:
+Employee
+java.lang.InstantiationException: java.lang.Integer
+*/

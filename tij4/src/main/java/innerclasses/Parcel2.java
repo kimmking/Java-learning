@@ -1,5 +1,9 @@
-package innerclasses;//: innerclasses/Parcel2.java
-// Returning a reference to an inner class.
+package innerclasses;
+// innerclasses/Parcel2.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Returning a reference to an inner class
 
 public class Parcel2 {
   class Contents {
@@ -29,9 +33,10 @@ public class Parcel2 {
     p.ship("Tasmania");
     Parcel2 q = new Parcel2();
     // Defining references to inner classes:
-    Contents c = q.contents();
-    Destination d = q.to("Borneo");
+    Parcel2.Contents c = q.contents();
+    Parcel2.Destination d = q.to("Borneo");
   }
-} /* Output:
+}
+/* Output:
 Tasmania
-*///:~
+*/

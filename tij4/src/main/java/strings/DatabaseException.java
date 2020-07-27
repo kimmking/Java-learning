@@ -1,8 +1,12 @@
-package strings;//: strings/DatabaseException.java
+package strings;
+// strings/DatabaseException.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class DatabaseException extends Exception {
-  public DatabaseException(int transactionID, int queryID,
-    String message) {
+  public DatabaseException(int transactionID,
+    int queryID, String message) {
     super(String.format("(t%d, q%d) %s", transactionID,
         queryID, message));
   }
@@ -13,6 +17,7 @@ public class DatabaseException extends Exception {
       System.out.println(e);
     }
   }
-} /* Output:
+}
+/* Output:
 DatabaseException: (t3, q7) Write failed
-*///:~
+*/

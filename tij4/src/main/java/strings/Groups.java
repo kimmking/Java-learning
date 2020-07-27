@@ -1,9 +1,12 @@
-package strings;//: strings/Groups.java
+package strings;
+// strings/Groups.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.util.regex.*;
-import static net.mindview.util.Print.*;
 
 public class Groups {
-  static public final String POEM =
+  public static final String POEM =
     "Twas brillig, and the slithy toves\n" +
     "Did gyre and gimble in the wabe.\n" +
     "All mimsy were the borogoves,\n" +
@@ -13,22 +16,26 @@ public class Groups {
     "Beware the Jubjub bird, and shun\n" +
     "The frumious Bandersnatch.";
   public static void main(String[] args) {
-    Matcher m =
-      Pattern.compile("(?m)(\\S+)\\s+((\\S+)\\s+(\\S+))$")
-        .matcher(POEM);
+    Matcher m = Pattern.compile(
+      "(?m)(\\S+)\\s+((\\S+)\\s+(\\S+))$")
+      .matcher(POEM);
     while(m.find()) {
       for(int j = 0; j <= m.groupCount(); j++)
-        printnb("[" + m.group(j) + "]");
-      print();
+        System.out.print("[" + m.group(j) + "]");
+      System.out.println();
     }
   }
-} /* Output:
+}
+/* Output:
 [the slithy toves][the][slithy toves][slithy][toves]
 [in the wabe.][in][the wabe.][the][wabe.]
-[were the borogoves,][were][the borogoves,][the][borogoves,]
-[mome raths outgrabe.][mome][raths outgrabe.][raths][outgrabe.]
+[were the borogoves,][were][the
+borogoves,][the][borogoves,]
+[mome raths outgrabe.][mome][raths
+outgrabe.][raths][outgrabe.]
 [Jabberwock, my son,][Jabberwock,][my son,][my][son,]
 [claws that catch.][claws][that catch.][that][catch.]
 [bird, and shun][bird,][and shun][and][shun]
-[The frumious Bandersnatch.][The][frumious Bandersnatch.][frumious][Bandersnatch.]
-*///:~
+[The frumious Bandersnatch.][The][frumious
+Bandersnatch.][frumious][Bandersnatch.]
+*/

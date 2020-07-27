@@ -1,27 +1,32 @@
-package exceptions;//: exceptions/ExceptionMethods.java
-// Demonstrating the Exception Methods.
-import static net.mindview.util.Print.*;
+package exceptions;// exceptions/ExceptionMethods.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Demonstrating the Exception Methods
 
 public class ExceptionMethods {
-  public static void main(String[] args) {
-    try {
-      throw new Exception("My Exception");
-    } catch(Exception e) {
-      print("Caught Exception");
-      print("getMessage():" + e.getMessage());
-      print("getLocalizedMessage():" +
-        e.getLocalizedMessage());
-      print("toString():" + e);
-      print("printStackTrace():");
-      e.printStackTrace(System.out);
+    public static void main(String[] args) {
+        try {
+            throw new Exception("My Exception");
+        } catch (Exception e) {
+            System.out.println("Caught Exception");
+            System.out.println(
+                    "getMessage():" + e.getMessage());
+            System.out.println("getLocalizedMessage():" +
+                    e.getLocalizedMessage());
+            System.out.println("toString():" + e);
+            System.out.println("printStackTrace():");
+            e.printStackTrace(System.out);
+        }
     }
-  }
-} /* Output:
+}
+/* Output:
 Caught Exception
 getMessage():My Exception
 getLocalizedMessage():My Exception
 toString():java.lang.Exception: My Exception
 printStackTrace():
 java.lang.Exception: My Exception
-        at ExceptionMethods.main(ExceptionMethods.java:8)
-*///:~
+        at
+ExceptionMethods.main(ExceptionMethods.java:7)
+*/

@@ -1,13 +1,18 @@
-package innerclasses;//: innerclasses/Parcel5.java
-// Nesting a class within a method.
+package innerclasses;
+// innerclasses/Parcel5.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Nesting a class within a method
 
 public class Parcel5 {
   public Destination destination(String s) {
-    class PDestination implements Destination {
+    final class PDestination implements Destination {
       private String label;
       private PDestination(String whereTo) {
         label = whereTo;
       }
+      @Override
       public String readLabel() { return label; }
     }
     return new PDestination(s);
@@ -16,4 +21,4 @@ public class Parcel5 {
     Parcel5 p = new Parcel5();
     Destination d = p.destination("Tasmania");
   }
-} ///:~
+}

@@ -1,13 +1,16 @@
-package innerclasses;//: innerclasses/GreenhouseController.java
-// Configure and execute the greenhouse system.
-// {Args: 5000}
+package innerclasses;
+// innerclasses/GreenhouseController.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Configure and execute the greenhouse system
 import innerclasses.controller.*;
 
 public class GreenhouseController {
   public static void main(String[] args) {
     GreenhouseControls gc = new GreenhouseControls();
-    // Instead of hard-wiring, you could parse
-    // configuration information from a text file here:
+    // Instead of using code, you could parse
+    // configuration information from a text file:
     gc.addEvent(gc.new Bell(900));
     Event[] eventList = {
       gc.new ThermostatNight(0),
@@ -16,22 +19,37 @@ public class GreenhouseController {
       gc.new WaterOn(600),
       gc.new WaterOff(800),
       gc.new ThermostatDay(1400)
-    };	
+    };
     gc.addEvent(gc.new Restart(2000, eventList));
-    if(args.length == 1)
-      gc.addEvent(
-        new GreenhouseControls.Terminate(
-          new Integer(args[0])));
+    gc.addEvent(
+      new GreenhouseControls.Terminate(5000));
     gc.run();
   }
-} /* Output:
-Bing!
+}
+/* Output:
 Thermostat on night setting
 Light is on
 Light is off
 Greenhouse water is on
 Greenhouse water is off
+Bing!
 Thermostat on day setting
+Bing!
 Restarting system
+Thermostat on night setting
+Light is on
+Light is off
+Greenhouse water is on
+Bing!
+Greenhouse water is off
+Thermostat on day setting
+Bing!
+Restarting system
+Thermostat on night setting
+Light is on
+Light is off
+Bing!
+Greenhouse water is on
+Greenhouse water is off
 Terminating
-*///:~
+*/

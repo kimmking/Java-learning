@@ -1,5 +1,8 @@
-package typeinfo;//: typeinfo/SimpleProxyDemo.java
-import static net.mindview.util.Print.*;
+package typeinfo;
+// typeinfo/SimpleProxyDemo.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 interface Interface {
   void doSomething();
@@ -7,26 +10,33 @@ interface Interface {
 }
 
 class RealObject implements Interface {
-  public void doSomething() { print("doSomething"); }
-  public void somethingElse(String arg) {
-    print("somethingElse " + arg);
+  @Override
+  public void doSomething() {
+    System.out.println("doSomething");
   }
-}	
+  @Override
+  public void somethingElse(String arg) {
+    System.out.println("somethingElse " + arg);
+  }
+}
 
 class SimpleProxy implements Interface {
   private Interface proxied;
-  public SimpleProxy(Interface proxied) {
+  SimpleProxy(Interface proxied) {
     this.proxied = proxied;
   }
+  @Override
   public void doSomething() {
-    print("SimpleProxy doSomething");
+    System.out.println("SimpleProxy doSomething");
     proxied.doSomething();
   }
+  @Override
   public void somethingElse(String arg) {
-    print("SimpleProxy somethingElse " + arg);
+    System.out.println(
+      "SimpleProxy somethingElse " + arg);
     proxied.somethingElse(arg);
   }
-}	
+}
 
 class SimpleProxyDemo {
   public static void consumer(Interface iface) {
@@ -37,11 +47,12 @@ class SimpleProxyDemo {
     consumer(new RealObject());
     consumer(new SimpleProxy(new RealObject()));
   }
-} /* Output:
+}
+/* Output:
 doSomething
 somethingElse bonobo
 SimpleProxy doSomething
 doSomething
 SimpleProxy somethingElse bonobo
 somethingElse bonobo
-*///:~
+*/

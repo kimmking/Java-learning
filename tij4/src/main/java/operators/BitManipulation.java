@@ -1,7 +1,10 @@
-package operators;//: operators/BitManipulation.java
-// Using the bitwise operators.
+package operators;
+// operators/BitManipulation.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Using the bitwise operators
 import java.util.*;
-import static net.mindview.util.Print.*;
 
 public class BitManipulation {
   public static void main(String[] args) {
@@ -49,14 +52,17 @@ public class BitManipulation {
     printBinaryLong("(~l) >>> 5", (~l) >>> 5);
   }
   static void printBinaryInt(String s, int i) {
-    print(s + ", int: " + i + ", binary:\n   " +
+    System.out.println(
+      s + ", int: " + i + ", binary:\n   " +
       Integer.toBinaryString(i));
   }
   static void printBinaryLong(String s, long l) {
-    print(s + ", long: " + l + ", binary:\n    " +
+    System.out.println(
+      s + ", long: " + l + ", binary:\n    " +
       Long.toBinaryString(l));
   }
-} /* Output:
+}
+/* Output: (First 32 Lines)
 -1, int: -1, binary:
    11111111111111111111111111111111
 +1, int: 1, binary:
@@ -89,5 +95,5 @@ i >>> 5, int: 97591828, binary:
    101110100010010001000010100
 (~i) >>> 5, int: 36625899, binary:
    10001011101101110111101011
-...
-*///:~
+                  ...
+*/

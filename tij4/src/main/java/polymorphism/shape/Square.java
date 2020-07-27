@@ -1,8 +1,16 @@
-//: polymorphism/shape/Square.java
+// polymorphism/shape/Square.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 package polymorphism.shape;
-import static net.mindview.util.Print.*;
 
 public class Square extends Shape {
-  public void draw() { print("Square.draw()"); }
-  public void erase() { print("Square.erase()"); }
-} ///:~
+  @Override
+  public void draw() {
+    System.out.println("Square.draw()");
+  }
+  @Override
+  public void erase() {
+    System.out.println("Square.erase()");
+  }
+}

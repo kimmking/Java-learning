@@ -1,32 +1,45 @@
-package innerclasses;//: innerclasses/BigEgg2.java
-// Proper inheritance of an inner class.
-import static net.mindview.util.Print.*;
+package innerclasses;
+// innerclasses/BigEgg2.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Proper inheritance of an inner class
 
 class Egg2 {
   protected class Yolk {
-    public Yolk() { print("Egg2.Yolk()"); }
-    public void f() { print("Egg2.Yolk.f()");}
+    public Yolk() {
+      System.out.println("Egg2.Yolk()");
+    }
+    public void f() {
+      System.out.println("Egg2.Yolk.f()");
+    }
   }
   private Yolk y = new Yolk();
-  public Egg2() { print("New Egg2()"); }
+  Egg2() { System.out.println("New Egg2()"); }
   public void insertYolk(Yolk yy) { y = yy; }
   public void g() { y.f(); }
-}	
+}
 
 public class BigEgg2 extends Egg2 {
   public class Yolk extends Egg2.Yolk {
-    public Yolk() { print("BigEgg2.Yolk()"); }
-    public void f() { print("BigEgg2.Yolk.f()"); }
+    public Yolk() {
+      System.out.println("BigEgg2.Yolk()");
+    }
+    @Override
+    public void f() {
+      System.out.println("BigEgg2.Yolk.f()");
+    }
   }
   public BigEgg2() { insertYolk(new Yolk()); }
   public static void main(String[] args) {
     Egg2 e2 = new BigEgg2();
     e2.g();
   }
-} /* Output:
+}
+/* Output:
 Egg2.Yolk()
 New Egg2()
 Egg2.Yolk()
 BigEgg2.Yolk()
 BigEgg2.Yolk.f()
-*///:~
+*/

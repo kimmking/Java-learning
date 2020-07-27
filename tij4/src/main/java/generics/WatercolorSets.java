@@ -1,8 +1,11 @@
-package generics;//: generics/WatercolorSets.java
+package generics;
+// generics/WatercolorSets.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import generics.watercolors.*;
 import java.util.*;
-import static net.mindview.util.Print.*;
-import static net.mindview.util.Sets.*;
+import static onjava.Sets.*;
 import static generics.watercolors.Watercolors.*;
 
 public class WatercolorSets {
@@ -11,24 +14,42 @@ public class WatercolorSets {
       EnumSet.range(BRILLIANT_RED, VIRIDIAN_HUE);
     Set<Watercolors> set2 =
       EnumSet.range(CERULEAN_BLUE_HUE, BURNT_UMBER);
-    print("set1: " + set1);
-    print("set2: " + set2);
-    print("union(set1, set2): " + union(set1, set2));
+    System.out.println("set1: " + set1);
+    System.out.println("set2: " + set2);
+    System.out.println(
+      "union(set1, set2): " + union(set1, set2));
     Set<Watercolors> subset = intersection(set1, set2);
-    print("intersection(set1, set2): " + subset);
-    print("difference(set1, subset): " +
-      difference(set1, subset));	
-    print("difference(set2, subset): " +
+    System.out.println(
+      "intersection(set1, set2): " + subset);
+    System.out.println("difference(set1, subset): " +
+      difference(set1, subset));
+    System.out.println("difference(set2, subset): " +
       difference(set2, subset));
-    print("complement(set1, set2): " +
+    System.out.println("complement(set1, set2): " +
       complement(set1, set2));
-  }	
-} /* Output: (Sample)
-set1: [BRILLIANT_RED, CRIMSON, MAGENTA, ROSE_MADDER, VIOLET, CERULEAN_BLUE_HUE, PHTHALO_BLUE, ULTRAMARINE, COBALT_BLUE_HUE, PERMANENT_GREEN, VIRIDIAN_HUE]
-set2: [CERULEAN_BLUE_HUE, PHTHALO_BLUE, ULTRAMARINE, COBALT_BLUE_HUE, PERMANENT_GREEN, VIRIDIAN_HUE, SAP_GREEN, YELLOW_OCHRE, BURNT_SIENNA, RAW_UMBER, BURNT_UMBER]
-union(set1, set2): [SAP_GREEN, ROSE_MADDER, YELLOW_OCHRE, PERMANENT_GREEN, BURNT_UMBER, COBALT_BLUE_HUE, VIOLET, BRILLIANT_RED, RAW_UMBER, ULTRAMARINE, BURNT_SIENNA, CRIMSON, CERULEAN_BLUE_HUE, PHTHALO_BLUE, MAGENTA, VIRIDIAN_HUE]
-intersection(set1, set2): [ULTRAMARINE, PERMANENT_GREEN, COBALT_BLUE_HUE, PHTHALO_BLUE, CERULEAN_BLUE_HUE, VIRIDIAN_HUE]
-difference(set1, subset): [ROSE_MADDER, CRIMSON, VIOLET, MAGENTA, BRILLIANT_RED]
-difference(set2, subset): [RAW_UMBER, SAP_GREEN, YELLOW_OCHRE, BURNT_SIENNA, BURNT_UMBER]
-complement(set1, set2): [SAP_GREEN, ROSE_MADDER, YELLOW_OCHRE, BURNT_UMBER, VIOLET, BRILLIANT_RED, RAW_UMBER, BURNT_SIENNA, CRIMSON, MAGENTA]
-*///:~
+  }
+}
+/* Output:
+set1: [BRILLIANT_RED, CRIMSON, MAGENTA, ROSE_MADDER,
+VIOLET, CERULEAN_BLUE_HUE, PHTHALO_BLUE, ULTRAMARINE,
+COBALT_BLUE_HUE, PERMANENT_GREEN, VIRIDIAN_HUE]
+set2: [CERULEAN_BLUE_HUE, PHTHALO_BLUE, ULTRAMARINE,
+COBALT_BLUE_HUE, PERMANENT_GREEN, VIRIDIAN_HUE,
+SAP_GREEN, YELLOW_OCHRE, BURNT_SIENNA, RAW_UMBER,
+BURNT_UMBER]
+union(set1, set2): [BURNT_SIENNA, BRILLIANT_RED,
+YELLOW_OCHRE, MAGENTA, SAP_GREEN, CERULEAN_BLUE_HUE,
+ULTRAMARINE, VIRIDIAN_HUE, VIOLET, RAW_UMBER,
+ROSE_MADDER, PERMANENT_GREEN, BURNT_UMBER,
+PHTHALO_BLUE, CRIMSON, COBALT_BLUE_HUE]
+intersection(set1, set2): [PERMANENT_GREEN,
+CERULEAN_BLUE_HUE, ULTRAMARINE, VIRIDIAN_HUE,
+PHTHALO_BLUE, COBALT_BLUE_HUE]
+difference(set1, subset): [BRILLIANT_RED, MAGENTA,
+VIOLET, CRIMSON, ROSE_MADDER]
+difference(set2, subset): [BURNT_SIENNA, YELLOW_OCHRE,
+BURNT_UMBER, SAP_GREEN, RAW_UMBER]
+complement(set1, set2): [BURNT_SIENNA, BRILLIANT_RED,
+YELLOW_OCHRE, MAGENTA, SAP_GREEN, VIOLET, RAW_UMBER,
+ROSE_MADDER, BURNT_UMBER, CRIMSON]
+*/

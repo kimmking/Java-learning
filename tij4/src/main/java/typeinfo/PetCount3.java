@@ -1,47 +1,54 @@
-package typeinfo;//: typeinfo/PetCount3.java
+package typeinfo;
+// typeinfo/PetCount3.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // Using isInstance()
-import typeinfo.pets.*;
 import java.util.*;
-import net.mindview.util.*;
-import static net.mindview.util.Print.*;
+import java.util.stream.*;
+import onjava.*;
+import typeinfo.pets.*;
 
 public class PetCount3 {
-  static class PetCounter
-  extends LinkedHashMap<Class<? extends Pet>,Integer> {
-    public PetCounter() {
-      super(MapData.map(LiteralPetCreator.allTypes, 0));
+  static class Counter extends
+  LinkedHashMap<Class<? extends Pet>, Integer> {
+    Counter() {
+      super(LiteralPetCreator.ALL_TYPES.stream()
+        .map(lpc -> Pair.make(lpc, 0))
+        .collect(
+          Collectors.toMap(Pair::key, Pair::value)));
     }
     public void count(Pet pet) {
       // Class.isInstance() eliminates instanceofs:
-      for(Map.Entry<Class<? extends Pet>,Integer> pair
-          : entrySet())
-        if(pair.getKey().isInstance(pet))
-          put(pair.getKey(), pair.getValue() + 1);
-    }	
+      entrySet().stream()
+        .filter(pair -> pair.getKey().isInstance(pet))
+        .forEach(pair ->
+          put(pair.getKey(), pair.getValue() + 1));
+    }
+    @Override
     public String toString() {
-      StringBuilder result = new StringBuilder("{");
-      for(Map.Entry<Class<? extends Pet>,Integer> pair
-          : entrySet()) {
-        result.append(pair.getKey().getSimpleName());
-        result.append("=");
-        result.append(pair.getValue());
-        result.append(", ");
-      }
-      result.delete(result.length()-2, result.length());
-      result.append("}");
-      return result.toString();
+      String result = entrySet().stream()
+        .map(pair -> String.format("%s=%s",
+          pair.getKey().getSimpleName(),
+          pair.getValue()))
+        .collect(Collectors.joining(", "));
+      return "{" + result + "}";
     }
-  }	
-  public static void main(String[] args) {
-    PetCounter petCount = new PetCounter();
-    for(Pet pet : Pets.createArray(20)) {
-      printnb(pet.getClass().getSimpleName() + " ");
-      petCount.count(pet);
-    }
-    print();
-    print(petCount);
   }
-} /* Output:
-Rat Manx Cymric Mutt Pug Cymric Pug Manx Cymric Rat EgyptianMau Hamster EgyptianMau Mutt Mutt Cymric Mouse Pug Mouse Cymric
-{Pet=20, Dog=6, Cat=9, Rodent=5, Mutt=3, Pug=3, EgyptianMau=2, Manx=7, Cymric=5, Rat=2, Mouse=2, Hamster=1}
-*///:~
+  public static void main(String[] args) {
+    Counter petCount = new Counter();
+    Pets.stream()
+      .limit(20)
+      .peek(petCount::count)
+      .forEach(p -> System.out.print(
+        p.getClass().getSimpleName() + " "));
+    System.out.println("\n" + petCount);
+  }
+}
+/* Output:
+Rat Manx Cymric Mutt Pug Cymric Pug Manx Cymric Rat
+EgyptianMau Hamster EgyptianMau Mutt Mutt Cymric Mouse
+Pug Mouse Cymric
+{Rat=2, Pug=3, Mutt=3, Mouse=2, Cat=9, Dog=6, Cymric=5,
+EgyptianMau=2, Rodent=5, Hamster=1, Manx=7, Pet=20}
+*/

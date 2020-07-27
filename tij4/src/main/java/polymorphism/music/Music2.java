@@ -1,17 +1,22 @@
-//: polymorphism/music/Music2.java
-// Overloading instead of upcasting.
+// polymorphism/music/Music2.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Overloading instead of upcasting
+// {java polymorphism.music.Music2}
 package polymorphism.music;
-import static net.mindview.util.Print.*;
 
 class Stringed extends Instrument {
+  @Override
   public void play(Note n) {
-    print("Stringed.play() " + n);
+    System.out.println("Stringed.play() " + n);
   }
 }
 
 class Brass extends Instrument {
+  @Override
   public void play(Note n) {
-    print("Brass.play() " + n);
+    System.out.println("Brass.play() " + n);
   }
 }
 
@@ -33,8 +38,9 @@ public class Music2 {
     tune(violin);
     tune(frenchHorn);
   }
-} /* Output:
+}
+/* Output:
 Wind.play() MIDDLE_C
 Stringed.play() MIDDLE_C
 Brass.play() MIDDLE_C
-*///:~
+*/

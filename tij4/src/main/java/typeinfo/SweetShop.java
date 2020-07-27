@@ -1,34 +1,38 @@
-package typeinfo;//: typeinfo/SweetShop.java
-// Examination of the way the class loader works.
-import static net.mindview.util.Print.*;
+package typeinfo;
+// typeinfo/SweetShop.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Examination of the way the class loader works
 
-class Candy {
-  static { print("Loading Candy"); }
+class Cookie {
+  static { System.out.println("Loading Cookie"); }
 }
 
 class Gum {
-  static { print("Loading Gum"); }
+  static { System.out.println("Loading Gum"); }
 }
 
-class Cookie {
-  static { print("Loading Cookie"); }
+class Candy {
+  static { System.out.println("Loading Candy"); }
 }
 
 public class SweetShop {
-  public static void main(String[] args) {	
-    print("inside main");
+  public static void main(String[] args) {
+    System.out.println("inside main");
     new Candy();
-    print("After creating Candy");
+    System.out.println("After creating Candy");
     try {
       Class.forName("Gum");
     } catch(ClassNotFoundException e) {
-      print("Couldn't find Gum");
+      System.out.println("Couldn't find Gum");
     }
-    print("After Class.forName(\"Gum\")");
+    System.out.println("After Class.forName(\"Gum\")");
     new Cookie();
-    print("After creating Cookie");
+    System.out.println("After creating Cookie");
   }
-} /* Output:
+}
+/* Output:
 inside main
 Loading Candy
 After creating Candy
@@ -36,4 +40,4 @@ Loading Gum
 After Class.forName("Gum")
 Loading Cookie
 After creating Cookie
-*///:~
+*/

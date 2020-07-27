@@ -1,24 +1,28 @@
-package operators;//: operators/AutoInc.java
-// Demonstrates the ++ and -- operators.
-import static net.mindview.util.Print.*;
+package operators;
+// operators/AutoInc.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Demonstrates the ++ and -- operators
 
 public class AutoInc {
   public static void main(String[] args) {
     int i = 1;
-    print("i : " + i);
-    print("++i : " + ++i); // Pre-increment
-    print("i++ : " + i++); // Post-increment
-    print("i : " + i);
-    print("--i : " + --i); // Pre-decrement
-    print("i-- : " + i--); // Post-decrement
-    print("i : " + i);
+    System.out.println("i: " + i);
+    System.out.println("++i: " + ++i); // Pre-increment
+    System.out.println("i++: " + i++); // Post-increment
+    System.out.println("i: " + i);
+    System.out.println("--i: " + --i); // Pre-decrement
+    System.out.println("i--: " + i--); // Post-decrement
+    System.out.println("i: " + i);
   }
-} /* Output:
-i : 1
-++i : 2
-i++ : 2
-i : 3
---i : 2
-i-- : 2
-i : 1
-*///:~
+}
+/* Output:
+i: 1
+++i: 2
+i++: 2
+i: 3
+--i: 2
+i--: 2
+i: 1
+*/

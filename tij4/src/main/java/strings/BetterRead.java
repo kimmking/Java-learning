@@ -1,4 +1,8 @@
-package strings;//: strings/BetterRead.java
+package strings;
+// strings/BetterRead.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.util.*;
 
 public class BetterRead {
@@ -14,13 +18,14 @@ public class BetterRead {
     double favorite = stdin.nextDouble();
     System.out.println(age);
     System.out.println(favorite);
-    System.out.format("Hi %s.\n", name);
-    System.out.format("In 5 years you will be %d.\n",
+    System.out.format("Hi %s.%n", name);
+    System.out.format("In 5 years you will be %d.%n",
       age + 5);
     System.out.format("My favorite double is %f.",
       favorite / 2);
   }
-} /* Output:
+}
+/* Output:
 What is your name?
 Sir Robin of Camelot
 How old are you? What is your favorite double?
@@ -30,4 +35,4 @@ How old are you? What is your favorite double?
 Hi Sir Robin of Camelot.
 In 5 years you will be 27.
 My favorite double is 0.809015.
-*///:~
+*/

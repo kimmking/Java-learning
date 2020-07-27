@@ -1,4 +1,8 @@
-package generics;//: generics/NotSelfBounded.java
+package generics;
+// generics/NotSelfBounded.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class NotSelfBounded<T> {
   T element;
@@ -14,8 +18,8 @@ class B2 extends NotSelfBounded<A2> {}
 
 class C2 extends NotSelfBounded<C2> {
   C2 setAndGet(C2 arg) { set(arg); return get(); }
-}	
+}
 
 class D2 {}
 // Now this is OK:
-class E2 extends NotSelfBounded<D2> {} ///:~
+class E2 extends NotSelfBounded<D2> {}

@@ -1,5 +1,10 @@
-package exceptions;//: exceptions/LoggingExceptions2.java
-// Logging caught exceptions.
+package exceptions;
+// exceptions/LoggingExceptions2.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Logging caught exceptions
+// {ErrorOutputExpected}
 import java.util.logging.*;
 import java.io.*;
 
@@ -18,8 +23,11 @@ public class LoggingExceptions2 {
       logException(e);
     }
   }
-} /* Output: (90% match)
-Aug 30, 2005 4:07:54 PM LoggingExceptions2 logException
+}
+/* Output:
+___[ Error Output ]___
+May 09, 2017 6:07:17 AM LoggingExceptions2 logException
 SEVERE: java.lang.NullPointerException
-        at LoggingExceptions2.main(LoggingExceptions2.java:16)
-*///:~
+        at
+LoggingExceptions2.main(LoggingExceptions2.java:17)
+*/

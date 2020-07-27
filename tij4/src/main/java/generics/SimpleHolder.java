@@ -1,4 +1,8 @@
-package generics;//: generics/SimpleHolder.java
+package generics;
+// generics/SimpleHolder.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class SimpleHolder {
   private Object obj;
@@ -9,4 +13,4 @@ public class SimpleHolder {
     holder.set("Item");
     String s = (String)holder.get();
   }
-} ///:~
+}

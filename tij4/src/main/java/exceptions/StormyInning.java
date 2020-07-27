@@ -1,14 +1,18 @@
-package exceptions;//: exceptions/StormyInning.java
-// Overridden methods may throw only the exceptions
+package exceptions;
+// exceptions/StormyInning.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Overridden methods can throw only the exceptions
 // specified in their base-class versions, or exceptions
-// derived from the base-class exceptions.
+// derived from the base-class exceptions
 
 class BaseballException extends Exception {}
 class Foul extends BaseballException {}
 class Strike extends BaseballException {}
 
 abstract class Inning {
-  public Inning() throws BaseballException {}
+  Inning() throws BaseballException {}
   public void event() throws BaseballException {
     // Doesn't actually have to throw anything
   }
@@ -21,29 +25,33 @@ class RainedOut extends StormException {}
 class PopFoul extends Foul {}
 
 interface Storm {
-  public void event() throws RainedOut;
-  public void rainHard() throws RainedOut;
+  void event() throws RainedOut;
+  void rainHard() throws RainedOut;
 }
 
-public class StormyInning extends Inning implements Storm {
+public
+class StormyInning extends Inning implements Storm {
   // OK to add new exceptions for constructors, but you
   // must deal with the base constructor exceptions:
   public StormyInning()
     throws RainedOut, BaseballException {}
   public StormyInning(String s)
-    throws Foul, BaseballException {}
+    throws BaseballException {}
   // Regular methods must conform to base class:
-//! void walk() throws PopFoul {} //Compile error
+  //- void walk() throws PopFoul {} //Compile error
   // Interface CANNOT add exceptions to existing
   // methods from the base class:
-//! public void event() throws RainedOut {}
+  //- public void event() throws RainedOut {}
   // If the method doesn't already exist in the
   // base class, the exception is OK:
+  @Override
   public void rainHard() throws RainedOut {}
   // You can choose to not throw any exceptions,
   // even if the base version does:
+  @Override
   public void event() {}
   // Overridden methods can throw inherited exceptions:
+  @Override
   public void atBat() throws PopFoul {}
   public static void main(String[] args) {
     try {
@@ -73,4 +81,4 @@ public class StormyInning extends Inning implements Storm {
       System.out.println("Generic baseball exception");
     }
   }
-} ///:~
+}

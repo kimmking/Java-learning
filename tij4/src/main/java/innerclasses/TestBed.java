@@ -1,6 +1,10 @@
-package innerclasses;//: innerclasses/TestBed.java
-// Putting test code in a nested class.
-// {main: TestBed$Tester}
+package innerclasses;
+// innerclasses/TestBed.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Putting test code in a nested class
+// {java TestBed$Tester}
 
 public class TestBed {
   public void f() { System.out.println("f()"); }
@@ -10,6 +14,7 @@ public class TestBed {
       t.f();
     }
   }
-} /* Output:
+}
+/* Output:
 f()
-*///:~
+*/

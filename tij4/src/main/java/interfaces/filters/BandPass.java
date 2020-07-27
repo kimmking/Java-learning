@@ -1,4 +1,7 @@
-//: interfaces/filters/BandPass.java
+// interfaces/filters/BandPass.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 package interfaces.filters;
 
 public class BandPass extends Filter {
@@ -7,5 +10,8 @@ public class BandPass extends Filter {
     lowCutoff = lowCut;
     highCutoff = highCut;
   }
-  public Waveform process(Waveform input) { return input; }
-} ///:~
+  @Override
+  public Waveform process(Waveform input) {
+    return input;
+  }
+}

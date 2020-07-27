@@ -1,4 +1,8 @@
-package generics;//: generics/NeedCasting.java
+package generics;
+// generics/NeedCasting.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.io.*;
 import java.util.*;
 
@@ -9,4 +13,4 @@ public class NeedCasting {
       new FileInputStream(args[0]));
     List<Widget> shapes = (List<Widget>)in.readObject();
   }
-} ///:~
+}

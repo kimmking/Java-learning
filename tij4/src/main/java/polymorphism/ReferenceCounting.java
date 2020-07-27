@@ -1,48 +1,62 @@
-package polymorphism;//: polymorphism/ReferenceCounting.java
-// Cleaning up shared member objects.
-import static net.mindview.util.Print.*;
+package polymorphism;
+// polymorphism/ReferenceCounting.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Cleaning up shared member objects
 
 class Shared {
   private int refcount = 0;
   private static long counter = 0;
   private final long id = counter++;
-  public Shared() {
-    print("Creating " + this);
+  Shared() {
+    System.out.println("Creating " + this);
   }
   public void addRef() { refcount++; }
   protected void dispose() {
     if(--refcount == 0)
-      print("Disposing " + this);
+      System.out.println("Disposing " + this);
   }
-  public String toString() { return "Shared " + id; }
+  @Override
+  public String toString() {
+    return "Shared " + id;
+  }
 }
 
 class Composing {
   private Shared shared;
   private static long counter = 0;
   private final long id = counter++;
-  public Composing(Shared shared) {
-    print("Creating " + this);
+  Composing(Shared shared) {
+    System.out.println("Creating " + this);
     this.shared = shared;
     this.shared.addRef();
   }
   protected void dispose() {
-    print("disposing " + this);
+    System.out.println("disposing " + this);
     shared.dispose();
   }
-  public String toString() { return "Composing " + id; }
+  @Override
+  public String toString() {
+    return "Composing " + id;
+  }
 }
 
 public class ReferenceCounting {
   public static void main(String[] args) {
     Shared shared = new Shared();
-    Composing[] composing = { new Composing(shared),
-      new Composing(shared), new Composing(shared),
-      new Composing(shared), new Composing(shared) };
+    Composing[] composing = {
+      new Composing(shared),
+      new Composing(shared),
+      new Composing(shared),
+      new Composing(shared),
+      new Composing(shared)
+    };
     for(Composing c : composing)
       c.dispose();
   }
-} /* Output:
+}
+/* Output:
 Creating Shared 0
 Creating Composing 0
 Creating Composing 1
@@ -55,4 +69,4 @@ disposing Composing 2
 disposing Composing 3
 disposing Composing 4
 Disposing Shared 0
-*///:~
+*/

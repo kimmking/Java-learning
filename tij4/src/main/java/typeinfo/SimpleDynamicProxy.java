@@ -1,22 +1,28 @@
-package typeinfo;//: typeinfo/SimpleDynamicProxy.java
+package typeinfo;
+// typeinfo/SimpleDynamicProxy.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.lang.reflect.*;
 
 class DynamicProxyHandler implements InvocationHandler {
   private Object proxied;
-  public DynamicProxyHandler(Object proxied) {
+  DynamicProxyHandler(Object proxied) {
     this.proxied = proxied;
   }
+  @Override
   public Object
   invoke(Object proxy, Method method, Object[] args)
   throws Throwable {
-    System.out.println("**** proxy: " + proxy.getClass() +
+    System.out.println(
+      "**** proxy: " + proxy.getClass() +
       ", method: " + method + ", args: " + args);
     if(args != null)
       for(Object arg : args)
         System.out.println("  " + arg);
     return method.invoke(proxied, args);
   }
-}	
+}
 
 class SimpleDynamicProxy {
   public static void consumer(Interface iface) {
@@ -33,12 +39,16 @@ class SimpleDynamicProxy {
       new DynamicProxyHandler(real));
     consumer(proxy);
   }
-} /* Output: (95% match)	
+}
+/* Output:
 doSomething
 somethingElse bonobo
-**** proxy: class $Proxy0, method: public abstract void Interface.doSomething(), args: null
+**** proxy: class $Proxy0, method: public abstract void
+Interface.doSomething(), args: null
 doSomething
-**** proxy: class $Proxy0, method: public abstract void Interface.somethingElse(java.lang.String), args: [Ljava.lang.Object;@42e816
+**** proxy: class $Proxy0, method: public abstract void
+Interface.somethingElse(java.lang.String), args:
+[Ljava.lang.Object;@6bc7c054
   bonobo
 somethingElse bonobo
-*///:~
+*/

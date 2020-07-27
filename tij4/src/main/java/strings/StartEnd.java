@@ -1,12 +1,16 @@
-package strings;//: strings/StartEnd.java
+package strings;
+// strings/StartEnd.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.util.regex.*;
-import static net.mindview.util.Print.*;
 
 public class StartEnd {
   public static String input =
     "As long as there is injustice, whenever a\n" +
     "Targathian baby cries out, wherever a distress\n" +
-    "signal sounds among the stars ... We'll be there.\n" +
+    "signal sounds among the stars " +
+    "... We'll be there.\n"+
     "This fine ship, and this fine crew ...\n" +
     "Never give up! Never surrender!";
   private static class Display {
@@ -15,10 +19,10 @@ public class StartEnd {
     Display(String regex) { this.regex = regex; }
     void display(String message) {
       if(!regexPrinted) {
-        print(regex);
+        System.out.println(regex);
         regexPrinted = true;
       }
-      print(message);
+      System.out.println(message);
     }
   }
   static void examine(String s, String regex) {
@@ -37,13 +41,14 @@ public class StartEnd {
   }
   public static void main(String[] args) {
     for(String in : input.split("\n")) {
-      print("input : " + in);
+      System.out.println("input : " + in);
       for(String regex : new String[]{"\\w*ere\\w*",
         "\\w*ever", "T\\w+", "Never.*?!"})
         examine(in, regex);
     }
   }
-} /* Output:
+}
+/* Output:
 input : As long as there is injustice, whenever a
 \w*ere\w*
 find() 'there' start = 11 end = 16
@@ -57,7 +62,8 @@ find() 'wherever' start = 27 end = 35
 T\w+
 find() 'Targathian' start = 0 end = 10
 lookingAt() start = 0 end = 10
-input : signal sounds among the stars ... We'll be there.
+input : signal sounds among the stars ... We'll be
+there.
 \w*ere\w*
 find() 'there' start = 43 end = 48
 input : This fine ship, and this fine crew ...
@@ -74,4 +80,4 @@ find() 'Never give up!' start = 0 end = 14
 find() 'Never surrender!' start = 15 end = 31
 lookingAt() start = 0 end = 14
 matches() start = 0 end = 31
-*///:~
+*/

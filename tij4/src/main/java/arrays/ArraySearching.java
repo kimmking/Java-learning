@@ -1,28 +1,33 @@
-package arrays;//: arrays/ArraySearching.java
-// Using Arrays.binarySearch().
+package arrays;// arrays/ArraySearching.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Using Arrays.binarySearch()
 import java.util.*;
-import net.mindview.util.*;
-import static net.mindview.util.Print.*;
+import onjava.*;
+import static onjava.ArrayShow.*;
 
 public class ArraySearching {
   public static void main(String[] args) {
-    Generator<Integer> gen =
-      new RandomGenerator.Integer(1000);
-    int[] a = ConvertTo.primitive(
-      Generated.array(new Integer[25], gen));
+    Rand.Pint rand = new Rand.Pint();
+    int[] a = new Rand.Pint().array(25);
     Arrays.sort(a);
-    print("Sorted array: " + Arrays.toString(a));
+    show("Sorted array", a);
     while(true) {
-      int r = gen.next();
+      int r = rand.getAsInt();
       int location = Arrays.binarySearch(a, r);
       if(location >= 0) {
-        print("Location of " + r + " is " + location +
-          ", a[" + location + "] = " + a[location]);
+        System.out.println(
+          "Location of " + r + " is " + location +
+          ", a[" + location + "] is " + a[location]);
         break; // Out of while loop
       }
     }
   }
-} /* Output:
-Sorted array: [128, 140, 200, 207, 258, 258, 278, 288, 322, 429, 511, 520, 522, 551, 555, 589, 693, 704, 809, 861, 861, 868, 916, 961, 998]
-Location of 322 is 8, a[8] = 322
-*///:~
+}
+/* Output:
+Sorted array: [125, 267, 635, 650, 1131, 1506, 1634,
+2400, 2766, 3063, 3768, 3941, 4720, 4762, 4948, 5070,
+5682, 5807, 6177, 6193, 6656, 7021, 8479, 8737, 9954]
+Location of 635 is 2, a[2] is 635
+*/

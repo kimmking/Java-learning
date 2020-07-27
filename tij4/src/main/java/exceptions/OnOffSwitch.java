@@ -1,4 +1,8 @@
-package exceptions;//: exceptions/OnOffSwitch.java
+package exceptions;
+// exceptions/OnOffSwitch.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // Why use finally?
 
 public class OnOffSwitch {
@@ -19,7 +23,8 @@ public class OnOffSwitch {
       sw.off();
     }
   }
-} /* Output:
+}
+/* Output:
 on
 off
-*///:~
+*/

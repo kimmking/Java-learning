@@ -1,10 +1,22 @@
-package exceptions;//: exceptions/Switch.java
-import static net.mindview.util.Print.*;
+package exceptions;
+// exceptions/Switch.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class Switch {
   private boolean state = false;
   public boolean read() { return state; }
-  public void on() { state = true; print(this); }
-  public void off() { state = false; print(this); }
-  public String toString() { return state ? "on" : "off"; }
-} ///:~
+  public void on() {
+    state = true;
+    System.out.println(this);
+  }
+  public void off() {
+    state = false;
+    System.out.println(this);
+  }
+  @Override
+  public String toString() {
+    return state ? "on" : "off";
+  }
+}

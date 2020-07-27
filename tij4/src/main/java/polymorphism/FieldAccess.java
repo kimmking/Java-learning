@@ -1,5 +1,9 @@
-package polymorphism;//: polymorphism/FieldAccess.java
-// Direct field access is determined at compile time.
+package polymorphism;
+// polymorphism/FieldAccess.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Direct field access is determined at compile time
 
 class Super {
   public int field = 0;
@@ -8,6 +12,7 @@ class Super {
 
 class Sub extends Super {
   public int field = 1;
+  @Override
   public int getField() { return field; }
   public int getSuperField() { return super.field; }
 }
@@ -24,7 +29,9 @@ public class FieldAccess {
       ", sub.getSuperField() = " +
       sub.getSuperField());
   }
-} /* Output:
+}
+/* Output:
 sup.field = 0, sup.getField() = 1
-sub.field = 1, sub.getField() = 1, sub.getSuperField() = 0
-*///:~
+sub.field = 1, sub.getField() = 1, sub.getSuperField()
+= 0
+*/

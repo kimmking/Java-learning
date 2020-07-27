@@ -1,20 +1,27 @@
-package annotations;//: annotations/PasswordUtils.java
-import java.util.*;
+package annotations;// annotations/PasswordUtils.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+
+import java.util.List;
 
 public class PasswordUtils {
-  @UseCase(id = 47, description =
-  "Passwords must contain at least one numeric")
-  public boolean validatePassword(String password) {
-    return (password.matches("\\w*\\d\\w*"));
-  }
-  @UseCase(id = 48)
-  public String encryptPassword(String password) {
-   return new StringBuilder(password).reverse().toString();
-  }
-  @UseCase(id = 49, description =
-  "New passwords can't equal previously used ones")
-  public boolean checkForNewPassword(
-          List<String> prevPasswords, String password) {
-    return !prevPasswords.contains(password);
-  }
-} ///:~
+    @UseCase(id = 47, description =
+            "Passwords must contain at least one numeric")
+    public boolean validatePassword(String passwd) {
+        return (passwd.matches("\\w*\\d\\w*"));
+    }
+
+    @UseCase(id = 48)
+    public String encryptPassword(String passwd) {
+        return new StringBuilder(passwd)
+                .reverse().toString();
+    }
+
+    @UseCase(id = 49, description =
+            "New passwords can't equal previously used ones")
+    public boolean checkForNewPassword(
+            List<String> prevPasswords, String passwd) {
+        return !prevPasswords.contains(passwd);
+    }
+}

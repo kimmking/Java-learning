@@ -1,6 +1,10 @@
-package innerclasses;//: innerclasses/Parcel10.java
+package innerclasses;
+// innerclasses/Parcel10.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // Using "instance initialization" to perform
-// construction on an anonymous inner class.
+// construction on an anonymous inner class
 
 public class Parcel10 {
   public Destination
@@ -14,13 +18,15 @@ public class Parcel10 {
           System.out.println("Over budget!");
       }
       private String label = dest;
+      @Override
       public String readLabel() { return label; }
     };
-  }	
+  }
   public static void main(String[] args) {
     Parcel10 p = new Parcel10();
     Destination d = p.destination("Tasmania", 101.395F);
   }
-} /* Output:
+}
+/* Output:
 Over budget!
-*///:~
+*/

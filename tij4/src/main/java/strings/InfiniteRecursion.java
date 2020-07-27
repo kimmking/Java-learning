@@ -1,17 +1,23 @@
-package strings;//: strings/InfiniteRecursion.java
-// Accidental recursion.
-// {RunByHand}
+package strings;
+// strings/InfiniteRecursion.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Accidental recursion
+// {ThrowsException}
+// {VisuallyInspectOutput} Throws very long exception
 import java.util.*;
+import java.util.stream.*;
 
 public class InfiniteRecursion {
+  @Override
   public String toString() {
-    return " InfiniteRecursion address: " + this + "\n";
+    return
+      " InfiniteRecursion address: " + this + "\n";
   }
   public static void main(String[] args) {
-    List<InfiniteRecursion> v =
-      new ArrayList<InfiniteRecursion>();
-    for(int i = 0; i < 10; i++)
-      v.add(new InfiniteRecursion());
-    System.out.println(v);
+    Stream.generate(InfiniteRecursion::new)
+      .limit(10)
+      .forEach(System.out::println);
   }
-} ///:~
+}

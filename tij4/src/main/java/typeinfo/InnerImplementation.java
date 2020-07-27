@@ -1,21 +1,35 @@
-package typeinfo;//: typeinfo/InnerImplementation.java
-// Private inner classes can't hide from reflection.
+package typeinfo;
+// typeinfo/InnerImplementation.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Private inner classes can't hide from reflection
 import typeinfo.interfacea.*;
-import static net.mindview.util.Print.*;
 
 class InnerA {
   private static class C implements A {
-    public void f() { print("public C.f()"); }
-    public void g() { print("public C.g()"); }
-    void u() { print("package C.u()"); }
-    protected void v() { print("protected C.v()"); }
-    private void w() { print("private C.w()"); }
+    public void f() {
+      System.out.println("public C.f()");
+    }
+    public void g() {
+      System.out.println("public C.g()");
+    }
+    void u() {
+      System.out.println("package C.u()");
+    }
+    protected void v() {
+      System.out.println("protected C.v()");
+    }
+    private void w() {
+      System.out.println("private C.w()");
+    }
   }
   public static A makeA() { return new C(); }
-}	
+}
 
 public class InnerImplementation {
-  public static void main(String[] args) throws Exception {
+  public static void
+  main(String[] args) throws Exception {
     A a = InnerA.makeA();
     a.f();
     System.out.println(a.getClass().getName());
@@ -25,11 +39,12 @@ public class InnerImplementation {
     HiddenImplementation.callHiddenMethod(a, "v");
     HiddenImplementation.callHiddenMethod(a, "w");
   }
-} /* Output:
+}
+/* Output:
 public C.f()
 InnerA$C
 public C.g()
 package C.u()
 protected C.v()
 private C.w()
-*///:~
+*/

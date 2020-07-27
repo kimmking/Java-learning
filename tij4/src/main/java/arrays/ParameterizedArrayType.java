@@ -1,4 +1,7 @@
-package arrays;//: arrays/ParameterizedArrayType.java
+package arrays;// arrays/ParameterizedArrayType.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 class ClassParameter<T> {
   public T[] f(T[] arg) { return arg; }
@@ -19,4 +22,4 @@ public class ParameterizedArrayType {
     ints2 = MethodParameter.f(ints);
     doubles2 = MethodParameter.f(doubles);
   }
-} ///:~
+}

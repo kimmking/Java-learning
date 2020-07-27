@@ -1,10 +1,16 @@
-package polymorphism;//: polymorphism/CovariantReturn.java
+package polymorphism;
+// polymorphism/CovariantReturn.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 class Grain {
+  @Override
   public String toString() { return "Grain"; }
 }
 
 class Wheat extends Grain {
+  @Override
   public String toString() { return "Wheat"; }
 }
 
@@ -13,6 +19,7 @@ class Mill {
 }
 
 class WheatMill extends Mill {
+  @Override
   Wheat process() { return new Wheat(); }
 }
 
@@ -25,7 +32,8 @@ public class CovariantReturn {
     g = m.process();
     System.out.println(g);
   }
-} /* Output:
+}
+/* Output:
 Grain
 Wheat
-*///:~
+*/

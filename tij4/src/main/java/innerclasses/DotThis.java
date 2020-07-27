@@ -1,5 +1,9 @@
-package innerclasses;//: innerclasses/DotThis.java
-// Qualifying access to the outer-class object.
+package innerclasses;
+// innerclasses/DotThis.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Accessing the outer-class object
 
 public class DotThis {
   void f() { System.out.println("DotThis.f()"); }
@@ -12,9 +16,10 @@ public class DotThis {
   public Inner inner() { return new Inner(); }
   public static void main(String[] args) {
     DotThis dt = new DotThis();
-    Inner dti = dt.inner();
+    DotThis.Inner dti = dt.inner();
     dti.outer().f();
   }
-} /* Output:
+}
+/* Output:
 DotThis.f()
-*///:~
+*/

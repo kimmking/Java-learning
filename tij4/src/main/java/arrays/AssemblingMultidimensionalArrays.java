@@ -1,5 +1,8 @@
-package arrays;//: arrays/AssemblingMultidimensionalArrays.java
-// Creating multidimensional arrays.
+package arrays;// arrays/AssemblingMultidimensionalArrays.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Creating multidimensional arrays
 import java.util.*;
 
 public class AssemblingMultidimensionalArrays {
@@ -13,6 +16,7 @@ public class AssemblingMultidimensionalArrays {
     }
     System.out.println(Arrays.deepToString(a));
   }
-} /* Output:
+}
+/* Output:
 [[0, 0, 0], [0, 1, 2], [0, 2, 4]]
-*///:~
+*/

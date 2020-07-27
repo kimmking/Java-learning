@@ -1,5 +1,9 @@
-package typeinfo;//: typeinfo/InterfaceViolation.java
-// Sneaking around an interface.
+package typeinfo;
+// typeinfo/InterfaceViolation.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Sneaking around an interface
 import typeinfo.interfacea.*;
 
 class B implements A {
@@ -18,6 +22,7 @@ public class InterfaceViolation {
       b.g();
     }
   }
-} /* Output:
+}
+/* Output:
 B
-*///:~
+*/

@@ -1,13 +1,18 @@
-package generics;//: generics/Mixins.java
+package generics;
+// generics/Mixins.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.util.*;
 
 interface TimeStamped { long getStamp(); }
 
 class TimeStampedImp implements TimeStamped {
   private final long timeStamp;
-  public TimeStampedImp() {
+  TimeStampedImp() {
     timeStamp = new Date().getTime();
   }
+  @Override
   public long getStamp() { return timeStamp; }
 }
 
@@ -16,17 +21,20 @@ interface SerialNumbered { long getSerialNumber(); }
 class SerialNumberedImp implements SerialNumbered {
   private static long counter = 1;
   private final long serialNumber = counter++;
+  @Override
   public long getSerialNumber() { return serialNumber; }
 }
 
 interface Basic {
-  public void set(String val);
-  public String get();
+  void set(String val);
+  String get();
 }
 
 class BasicImp implements Basic {
   private String value;
+  @Override
   public void set(String val) { value = val; }
+  @Override
   public String get() { return value; }
 }
 
@@ -35,7 +43,11 @@ implements TimeStamped, SerialNumbered {
   private TimeStamped timeStamp = new TimeStampedImp();
   private SerialNumbered serialNumber =
     new SerialNumberedImp();
-  public long getStamp() { return timeStamp.getStamp(); }
+  @Override
+  public long getStamp() {
+    return timeStamp.getStamp();
+  }
+  @Override
   public long getSerialNumber() {
     return serialNumber.getSerialNumber();
   }
@@ -47,11 +59,14 @@ public class Mixins {
     mixin1.set("test string 1");
     mixin2.set("test string 2");
     System.out.println(mixin1.get() + " " +
-      mixin1.getStamp() +  " " + mixin1.getSerialNumber());
+      mixin1.getStamp() +  " " +
+      mixin1.getSerialNumber());
     System.out.println(mixin2.get() + " " +
-      mixin2.getStamp() +  " " + mixin2.getSerialNumber());
+      mixin2.getStamp() +  " " +
+      mixin2.getSerialNumber());
   }
-} /* Output: (Sample)
-test string 1 1132437151359 1
-test string 2 1132437151359 2
-*///:~
+}
+/* Output:
+test string 1 1494331663026 1
+test string 2 1494331663027 2
+*/

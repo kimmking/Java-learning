@@ -1,4 +1,8 @@
-package generics;//: generics/GenericMethods.java
+package generics;
+// generics/GenericMethods.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class GenericMethods {
   public <T> void f(T x) {
@@ -13,11 +17,12 @@ public class GenericMethods {
     gm.f('c');
     gm.f(gm);
   }
-} /* Output:
+}
+/* Output:
 java.lang.String
 java.lang.Integer
 java.lang.Double
 java.lang.Float
 java.lang.Character
 GenericMethods
-*///:~
+*/

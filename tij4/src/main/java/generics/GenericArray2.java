@@ -1,4 +1,8 @@
-package generics;//: generics/GenericArray2.java
+package generics;
+// generics/GenericArray2.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class GenericArray2<T> {
   private Object[] array;
@@ -12,11 +16,11 @@ public class GenericArray2<T> {
   public T get(int index) { return (T)array[index]; }
   @SuppressWarnings("unchecked")
   public T[] rep() {
-    return (T[])array; // Warning: unchecked cast
-  }	
+    return (T[])array; // Unchecked cast
+  }
   public static void main(String[] args) {
     GenericArray2<Integer> gai =
-      new GenericArray2<Integer>(10);
+      new GenericArray2<>(10);
     for(int i = 0; i < 10; i ++)
       gai.put(i, i);
     for(int i = 0; i < 10; i ++)
@@ -24,9 +28,13 @@ public class GenericArray2<T> {
     System.out.println();
     try {
       Integer[] ia = gai.rep();
-    } catch(Exception e) { System.out.println(e); }
+    } catch(Exception e) {
+      System.out.println(e);
+    }
   }
-} /* Output: (Sample)
+}
+/* Output:
 0 1 2 3 4 5 6 7 8 9
-java.lang.ClassCastException: [Ljava.lang.Object; cannot be cast to [Ljava.lang.Integer;
-*///:~
+java.lang.ClassCastException: [Ljava.lang.Object;
+cannot be cast to [Ljava.lang.Integer;
+*/

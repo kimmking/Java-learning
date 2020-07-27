@@ -1,18 +1,27 @@
-package polymorphism;//: polymorphism/Transmogrify.java
+package polymorphism;
+// polymorphism/Transmogrify.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // Dynamically changing the behavior of an object
-// via composition (the "State" design pattern).
-import static net.mindview.util.Print.*;
+// via composition (the "State" design pattern)
 
 class Actor {
   public void act() {}
 }
 
 class HappyActor extends Actor {
-  public void act() { print("HappyActor"); }
+  @Override
+  public void act() {
+    System.out.println("HappyActor");
+  }
 }
 
 class SadActor extends Actor {
-  public void act() { print("SadActor"); }
+  @Override
+  public void act() {
+    System.out.println("SadActor");
+  }
 }
 
 class Stage {
@@ -28,7 +37,8 @@ public class Transmogrify {
     stage.change();
     stage.performPlay();
   }
-} /* Output:
+}
+/* Output:
 HappyActor
 SadActor
-*///:~
+*/

@@ -1,4 +1,8 @@
-package generics;//: generics/CreatorGeneric.java
+package generics;
+// generics/CreatorGeneric.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 abstract class GenericWithCreate<T> {
   final T element;
@@ -8,18 +12,21 @@ abstract class GenericWithCreate<T> {
 
 class X {}
 
-class Creator extends GenericWithCreate<X> {
+class XCreator extends GenericWithCreate<X> {
+  @Override
   X create() { return new X(); }
   void f() {
-    System.out.println(element.getClass().getSimpleName());
+    System.out.println(
+      element.getClass().getSimpleName());
   }
-}	
+}
 
 public class CreatorGeneric {
   public static void main(String[] args) {
-    Creator c = new Creator();
-    c.f();
+    XCreator xc = new XCreator();
+    xc.f();
   }
-} /* Output:
+}
+/* Output:
 X
-*///:~
+*/

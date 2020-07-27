@@ -1,16 +1,19 @@
-//: polymorphism/Frog.java
-// Cleanup and inheritance.
+// polymorphism/Frog.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Cleanup and inheritance
+// {java polymorphism.Frog}
 package polymorphism;
-import static net.mindview.util.Print.*;
 
 class Characteristic {
   private String s;
   Characteristic(String s) {
     this.s = s;
-    print("Creating Characteristic " + s);
+    System.out.println("Creating Characteristic " + s);
   }
   protected void dispose() {
-    print("disposing Characteristic " + s);
+    System.out.println("disposing Characteristic " + s);
   }
 }
 
@@ -18,10 +21,10 @@ class Description {
   private String s;
   Description(String s) {
     this.s = s;
-    print("Creating Description " + s);
+    System.out.println("Creating Description " + s);
   }
   protected void dispose() {
-    print("disposing Description " + s);
+    System.out.println("disposing Description " + s);
   }
 }
 
@@ -31,10 +34,10 @@ class LivingCreature {
   private Description t =
     new Description("Basic Living Creature");
   LivingCreature() {
-    print("LivingCreature()");
+    System.out.println("LivingCreature()");
   }
   protected void dispose() {
-    print("LivingCreature dispose");
+    System.out.println("LivingCreature dispose");
     t.dispose();
     p.dispose();
   }
@@ -45,9 +48,10 @@ class Animal extends LivingCreature {
     new Characteristic("has heart");
   private Description t =
     new Description("Animal not Vegetable");
-  Animal() { print("Animal()"); }
+  Animal() { System.out.println("Animal()"); }
+  @Override
   protected void dispose() {
-    print("Animal dispose");
+    System.out.println("Animal dispose");
     t.dispose();
     p.dispose();
     super.dispose();
@@ -60,10 +64,11 @@ class Amphibian extends Animal {
   private Description t =
     new Description("Both water and land");
   Amphibian() {
-    print("Amphibian()");
+    System.out.println("Amphibian()");
   }
+  @Override
   protected void dispose() {
-    print("Amphibian dispose");
+    System.out.println("Amphibian dispose");
     t.dispose();
     p.dispose();
     super.dispose();
@@ -71,21 +76,24 @@ class Amphibian extends Animal {
 }
 
 public class Frog extends Amphibian {
-  private Characteristic p = new Characteristic("Croaks");
+  private Characteristic p =
+    new Characteristic("Croaks");
   private Description t = new Description("Eats Bugs");
-  public Frog() { print("Frog()"); }
+  public Frog() { System.out.println("Frog()"); }
+  @Override
   protected void dispose() {
-    print("Frog dispose");
+    System.out.println("Frog dispose");
     t.dispose();
     p.dispose();
     super.dispose();
   }
   public static void main(String[] args) {
     Frog frog = new Frog();
-    print("Bye!");
+    System.out.println("Bye!");
     frog.dispose();
   }
-} /* Output:
+}
+/* Output:
 Creating Characteristic is alive
 Creating Description Basic Living Creature
 LivingCreature()
@@ -111,4 +119,4 @@ disposing Characteristic has heart
 LivingCreature dispose
 disposing Description Basic Living Creature
 disposing Characteristic is alive
-*///:~
+*/

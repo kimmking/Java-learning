@@ -1,4 +1,8 @@
-package generics;//: generics/SelfBounding.java
+package generics;
+// generics/SelfBounding.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 class SelfBounded<T extends SelfBounded<T>> {
   T element;
@@ -14,14 +18,15 @@ class B extends SelfBounded<A> {} // Also OK
 
 class C extends SelfBounded<C> {
   C setAndGet(C arg) { set(arg); return get(); }
-}	
+}
 
 class D {}
 // Can't do this:
 // class E extends SelfBounded<D> {}
-// Compile error: Type parameter D is not within its bound
+// Compile error:
+//   Type parameter D is not within its bound
 
-// Alas, you can do this, so you can't force the idiom:
+// Alas, you can do this, so you cannot force the idiom:
 class F extends SelfBounded {}
 
 public class SelfBounding {
@@ -33,4 +38,4 @@ public class SelfBounding {
     C c = new C();
     c = c.setAndGet(new C());
   }
-} ///:~
+}

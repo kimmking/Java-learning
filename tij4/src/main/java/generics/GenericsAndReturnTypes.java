@@ -1,4 +1,8 @@
-package generics;//: generics/GenericsAndReturnTypes.java
+package generics;
+// generics/GenericsAndReturnTypes.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 interface GenericGetter<T extends GenericGetter<T>> {
   T get();
@@ -11,4 +15,4 @@ public class GenericsAndReturnTypes {
     Getter result = g.get();
     GenericGetter gg = g.get(); // Also the base type
   }
-} ///:~
+}

@@ -1,42 +1,80 @@
-//: polymorphism/music3/Music3.java
-// An extensible program.
+// polymorphism/music3/Music3.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// An extensible program
+// {java polymorphism.music3.Music3}
 package polymorphism.music3;
 import polymorphism.music.Note;
-import static net.mindview.util.Print.*;
 
 class Instrument {
-  void play(Note n) { print("Instrument.play() " + n); }
+  void play(Note n) {
+    System.out.println("Instrument.play() " + n);
+  }
   String what() { return "Instrument"; }
-  void adjust() { print("Adjusting Instrument"); }
+  void adjust() {
+    System.out.println("Adjusting Instrument");
+  }
 }
 
 class Wind extends Instrument {
-  void play(Note n) { print("Wind.play() " + n); }
+  @Override
+  void play(Note n) {
+    System.out.println("Wind.play() " + n);
+  }
+  @Override
   String what() { return "Wind"; }
-  void adjust() { print("Adjusting Wind"); }
-}	
+  @Override
+  void adjust() {
+    System.out.println("Adjusting Wind");
+  }
+}
 
 class Percussion extends Instrument {
-  void play(Note n) { print("Percussion.play() " + n); }
+  @Override
+  void play(Note n) {
+    System.out.println("Percussion.play() " + n);
+  }
+  @Override
   String what() { return "Percussion"; }
-  void adjust() { print("Adjusting Percussion"); }
+  @Override
+  void adjust() {
+    System.out.println("Adjusting Percussion");
+  }
 }
 
 class Stringed extends Instrument {
-  void play(Note n) { print("Stringed.play() " + n); }
+  @Override
+  void play(Note n) {
+    System.out.println("Stringed.play() " + n);
+  }
+  @Override
   String what() { return "Stringed"; }
-  void adjust() { print("Adjusting Stringed"); }
+  @Override
+  void adjust() {
+    System.out.println("Adjusting Stringed");
+  }
 }
 
 class Brass extends Wind {
-  void play(Note n) { print("Brass.play() " + n); }
-  void adjust() { print("Adjusting Brass"); }
+  @Override
+  void play(Note n) {
+    System.out.println("Brass.play() " + n);
+  }
+  @Override
+  void adjust() {
+    System.out.println("Adjusting Brass");
+  }
 }
 
 class Woodwind extends Wind {
-  void play(Note n) { print("Woodwind.play() " + n); }
+  @Override
+  void play(Note n) {
+    System.out.println("Woodwind.play() " + n);
+  }
+  @Override
   String what() { return "Woodwind"; }
-}	
+}
 
 public class Music3 {
   // Doesn't care about type, so new types
@@ -48,7 +86,7 @@ public class Music3 {
   public static void tuneAll(Instrument[] e) {
     for(Instrument i : e)
       tune(i);
-  }	
+  }
   public static void main(String[] args) {
     // Upcasting during addition to the array:
     Instrument[] orchestra = {
@@ -60,10 +98,11 @@ public class Music3 {
     };
     tuneAll(orchestra);
   }
-} /* Output:
+}
+/* Output:
 Wind.play() MIDDLE_C
 Percussion.play() MIDDLE_C
 Stringed.play() MIDDLE_C
 Brass.play() MIDDLE_C
 Woodwind.play() MIDDLE_C
-*///:~
+*/

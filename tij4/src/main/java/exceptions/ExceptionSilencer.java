@@ -1,4 +1,8 @@
-package exceptions;//: exceptions/ExceptionSilencer.java
+package exceptions;
+// exceptions/ExceptionSilencer.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class ExceptionSilencer {
   public static void main(String[] args) {
@@ -10,4 +14,4 @@ public class ExceptionSilencer {
       return;
     }
   }
-} ///:~
+}

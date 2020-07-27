@@ -1,16 +1,21 @@
-package generics;//: generics/ListOfInt.java
-// Autoboxing compensates for the inability to use
-// primitives in generics.
+package generics;
+// generics/ListOfInt.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Autoboxing compensates for the inability
+// to use primitives in generics
 import java.util.*;
+import java.util.stream.*;
 
 public class ListOfInt {
   public static void main(String[] args) {
-    List<Integer> li = new ArrayList<Integer>();
-    for(int i = 0; i < 5; i++)
-      li.add(i);
-    for(int i : li)
-      System.out.print(i + " ");
+    List<Integer> li = IntStream.range(38, 48)
+      .boxed() // Converts ints to Integers
+      .collect(Collectors.toList());
+    System.out.println(li);
   }
-} /* Output:
-0 1 2 3 4
-*///:~
+}
+/* Output:
+[38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+*/

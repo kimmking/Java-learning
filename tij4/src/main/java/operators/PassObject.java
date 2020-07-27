@@ -1,7 +1,10 @@
-package operators;//: operators/PassObject.java
-// Passing objects to methods may not be
-// what you're used to.
-import static net.mindview.util.Print.*;
+package operators;
+// operators/PassObject.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Passing objects to methods might not be
+// what you're used to
 
 class Letter {
   char c;
@@ -14,11 +17,12 @@ public class PassObject {
   public static void main(String[] args) {
     Letter x = new Letter();
     x.c = 'a';
-    print("1: x.c: " + x.c);
+    System.out.println("1: x.c: " + x.c);
     f(x);
-    print("2: x.c: " + x.c);
+    System.out.println("2: x.c: " + x.c);
   }
-} /* Output:
+}
+/* Output:
 1: x.c: a
 2: x.c: z
-*///:~
+*/

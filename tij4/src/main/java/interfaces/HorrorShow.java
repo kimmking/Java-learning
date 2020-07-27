@@ -1,5 +1,9 @@
-package interfaces;//: interfaces/HorrorShow.java
-// Extending an interface with inheritance.
+package interfaces;
+// interfaces/HorrorShow.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Extending an interface with inheritance
 
 interface Monster {
   void menace();
@@ -14,20 +18,26 @@ interface Lethal {
 }
 
 class DragonZilla implements DangerousMonster {
+  @Override
   public void menace() {}
+  @Override
   public void destroy() {}
-}	
+}
 
 interface Vampire extends DangerousMonster, Lethal {
   void drinkBlood();
 }
 
 class VeryBadVampire implements Vampire {
+  @Override
   public void menace() {}
+  @Override
   public void destroy() {}
+  @Override
   public void kill() {}
+  @Override
   public void drinkBlood() {}
-}	
+}
 
 public class HorrorShow {
   static void u(Monster b) { b.menace(); }
@@ -45,4 +55,4 @@ public class HorrorShow {
     v(vlad);
     w(vlad);
   }
-} ///:~
+}

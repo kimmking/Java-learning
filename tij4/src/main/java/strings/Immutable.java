@@ -1,5 +1,8 @@
-package strings;//: strings/Immutable.java
-import static net.mindview.util.Print.*;
+package strings;
+// strings/Immutable.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 public class Immutable {
   public static String upcase(String s) {
@@ -7,13 +10,14 @@ public class Immutable {
   }
   public static void main(String[] args) {
     String q = "howdy";
-    print(q); // howdy
+    System.out.println(q); // howdy
     String qq = upcase(q);
-    print(qq); // HOWDY
-    print(q); // howdy
+    System.out.println(qq); // HOWDY
+    System.out.println(q); // howdy
   }
-} /* Output:
+}
+/* Output:
 howdy
 HOWDY
 howdy
-*///:~
+*/

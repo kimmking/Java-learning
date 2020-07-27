@@ -1,26 +1,32 @@
-package generics;//: generics/ThrowGenericException.java
+package generics;
+// generics/ThrowGenericException.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 import java.util.*;
 
-interface Processor<T,E extends Exception> {
+interface Processor<T, E extends Exception> {
   void process(List<T> resultCollector) throws E;
 }
 
-class ProcessRunner<T,E extends Exception>
-extends ArrayList<Processor<T,E>> {
+class ProcessRunner<T, E extends Exception>
+extends ArrayList<Processor<T, E>> {
   List<T> processAll() throws E {
-    List<T> resultCollector = new ArrayList<T>();
-    for(Processor<T,E> processor : this)
+    List<T> resultCollector = new ArrayList<>();
+    for(Processor<T, E> processor : this)
       processor.process(resultCollector);
     return resultCollector;
   }
-}	
+}
 
 class Failure1 extends Exception {}
 
-class Processor1 implements Processor<String,Failure1> {
+class Processor1
+implements Processor<String, Failure1> {
   static int count = 3;
-  public void
-  process(List<String> resultCollector) throws Failure1 {
+  @Override
+  public void process(List<String> resultCollector)
+  throws Failure1 {
     if(count-- > 1)
       resultCollector.add("Hep!");
     else
@@ -28,14 +34,16 @@ class Processor1 implements Processor<String,Failure1> {
     if(count < 0)
        throw new Failure1();
   }
-}	
+}
 
 class Failure2 extends Exception {}
 
-class Processor2 implements Processor<Integer,Failure2> {
+class Processor2
+implements Processor<Integer, Failure2> {
   static int count = 2;
-  public void
-  process(List<Integer> resultCollector) throws Failure2 {
+  @Override
+  public void process(List<Integer> resultCollector)
+  throws Failure2 {
     if(count-- == 0)
       resultCollector.add(47);
     else {
@@ -44,12 +52,12 @@ class Processor2 implements Processor<Integer,Failure2> {
     if(count < 0)
        throw new Failure2();
   }
-}	
+}
 
 public class ThrowGenericException {
   public static void main(String[] args) {
-    ProcessRunner<String,Failure1> runner =
-      new ProcessRunner<String,Failure1>();
+    ProcessRunner<String, Failure1> runner =
+      new ProcessRunner<>();
     for(int i = 0; i < 3; i++)
       runner.add(new Processor1());
     try {
@@ -58,8 +66,8 @@ public class ThrowGenericException {
       System.out.println(e);
     }
 
-    ProcessRunner<Integer,Failure2> runner2 =
-      new ProcessRunner<Integer,Failure2>();
+    ProcessRunner<Integer, Failure2> runner2 =
+      new ProcessRunner<>();
     for(int i = 0; i < 3; i++)
       runner2.add(new Processor2());
     try {
@@ -68,4 +76,8 @@ public class ThrowGenericException {
       System.out.println(e);
     }
   }
-} ///:~
+}
+/* Output:
+[Hep!, Hep!, Ho!]
+Failure2
+*/

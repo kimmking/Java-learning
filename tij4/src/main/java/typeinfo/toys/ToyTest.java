@@ -1,15 +1,18 @@
-//: typeinfo/toys/ToyTest.java
-// Testing class Class.
+// typeinfo/toys/ToyTest.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Testing class Class
+// {java typeinfo.toys.ToyTest}
 package typeinfo.toys;
-import static net.mindview.util.Print.*;
 
 interface HasBatteries {}
 interface Waterproof {}
 interface Shoots {}
 
 class Toy {
-  // Comment out the following default constructor
-  // to see NoSuchMethodError from (*1*)
+  // Comment out the following no-arg
+  // constructor to see NoSuchMethodError
   Toy() {}
   Toy(int i) {}
 }
@@ -21,44 +24,50 @@ implements HasBatteries, Waterproof, Shoots {
 
 public class ToyTest {
   static void printInfo(Class cc) {
-    print("Class name: " + cc.getName() +
+    System.out.println("Class name: " + cc.getName() +
       " is interface? [" + cc.isInterface() + "]");
-    print("Simple name: " + cc.getSimpleName());
-    print("Canonical name : " + cc.getCanonicalName());
+    System.out.println(
+      "Simple name: " + cc.getSimpleName());
+    System.out.println(
+      "Canonical name : " + cc.getCanonicalName());
   }
   public static void main(String[] args) {
     Class c = null;
     try {
       c = Class.forName("typeinfo.toys.FancyToy");
     } catch(ClassNotFoundException e) {
-      print("Can't find FancyToy");
+      System.out.println("Can't find FancyToy");
       System.exit(1);
     }
-    printInfo(c);	
+    printInfo(c);
     for(Class face : c.getInterfaces())
       printInfo(face);
     Class up = c.getSuperclass();
     Object obj = null;
     try {
-      // Requires default constructor:
+      // Requires no-arg constructor:
       obj = up.newInstance();
     } catch(InstantiationException e) {
-      print("Cannot instantiate");
+      System.out.println("Cannot instantiate");
       System.exit(1);
     } catch(IllegalAccessException e) {
-      print("Cannot access");
+      System.out.println("Cannot access");
       System.exit(1);
     }
     printInfo(obj.getClass());
   }
-} /* Output:
-Class name: typeinfo.toys.FancyToy is interface? [false]
+}
+/* Output:
+Class name: typeinfo.toys.FancyToy is interface?
+[false]
 Simple name: FancyToy
 Canonical name : typeinfo.toys.FancyToy
-Class name: typeinfo.toys.HasBatteries is interface? [true]
+Class name: typeinfo.toys.HasBatteries is interface?
+[true]
 Simple name: HasBatteries
 Canonical name : typeinfo.toys.HasBatteries
-Class name: typeinfo.toys.Waterproof is interface? [true]
+Class name: typeinfo.toys.Waterproof is interface?
+[true]
 Simple name: Waterproof
 Canonical name : typeinfo.toys.Waterproof
 Class name: typeinfo.toys.Shoots is interface? [true]
@@ -67,4 +76,4 @@ Canonical name : typeinfo.toys.Shoots
 Class name: typeinfo.toys.Toy is interface? [false]
 Simple name: Toy
 Canonical name : typeinfo.toys.Toy
-*///:~
+*/

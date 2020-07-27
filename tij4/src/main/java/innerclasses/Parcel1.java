@@ -1,5 +1,9 @@
-package innerclasses;//: innerclasses/Parcel1.java
-// Creating inner classes.
+package innerclasses;
+// innerclasses/Parcel1.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Creating inner classes
 
 public class Parcel1 {
   class Contents {
@@ -12,7 +16,7 @@ public class Parcel1 {
       label = whereTo;
     }
     String readLabel() { return label; }
-  }	
+  }
   // Using inner classes looks just like
   // using any other class, within Parcel1:
   public void ship(String dest) {
@@ -24,6 +28,7 @@ public class Parcel1 {
     Parcel1 p = new Parcel1();
     p.ship("Tasmania");
   }
-} /* Output:
+}
+/* Output:
 Tasmania
-*///:~
+*/

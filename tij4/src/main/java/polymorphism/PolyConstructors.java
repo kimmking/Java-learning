@@ -1,35 +1,42 @@
-package polymorphism;//: polymorphism/PolyConstructors.java
+package polymorphism;
+// polymorphism/PolyConstructors.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 // Constructors and polymorphism
-// don't produce what you might expect.
-import static net.mindview.util.Print.*;
+// don't produce what you might expect
 
 class Glyph {
-  void draw() { print("Glyph.draw()"); }
+  void draw() { System.out.println("Glyph.draw()"); }
   Glyph() {
-    print("Glyph() before draw()");
+    System.out.println("Glyph() before draw()");
     draw();
-    print("Glyph() after draw()");
+    System.out.println("Glyph() after draw()");
   }
-}	
+}
 
 class RoundGlyph extends Glyph {
   private int radius = 1;
   RoundGlyph(int r) {
     radius = r;
-    print("RoundGlyph.RoundGlyph(), radius = " + radius);
+    System.out.println(
+      "RoundGlyph.RoundGlyph(), radius = " + radius);
   }
+  @Override
   void draw() {
-    print("RoundGlyph.draw(), radius = " + radius);
+    System.out.println(
+      "RoundGlyph.draw(), radius = " + radius);
   }
-}	
+}
 
 public class PolyConstructors {
   public static void main(String[] args) {
     new RoundGlyph(5);
   }
-} /* Output:
+}
+/* Output:
 Glyph() before draw()
 RoundGlyph.draw(), radius = 0
 Glyph() after draw()
 RoundGlyph.RoundGlyph(), radius = 5
-*///:~
+*/

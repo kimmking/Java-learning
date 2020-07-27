@@ -1,4 +1,8 @@
-//: generics/decorator/Decoration.java
+// generics/decorator/Decoration.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// {java generics.decorator.Decoration}
 package generics.decorator;
 import java.util.*;
 
@@ -10,14 +14,16 @@ class Basic {
 
 class Decorator extends Basic {
   protected Basic basic;
-  public Decorator(Basic basic) { this.basic = basic; }
+  Decorator(Basic basic) { this.basic = basic; }
+  @Override
   public void set(String val) { basic.set(val); }
+  @Override
   public String get() { return basic.get(); }
-}	
+}
 
 class TimeStamped extends Decorator {
   private final long timeStamp;
-  public TimeStamped(Basic basic) {
+  TimeStamped(Basic basic) {
     super(basic);
     timeStamp = new Date().getTime();
   }
@@ -27,19 +33,19 @@ class TimeStamped extends Decorator {
 class SerialNumbered extends Decorator {
   private static long counter = 1;
   private final long serialNumber = counter++;
-  public SerialNumbered(Basic basic) { super(basic); }
+  SerialNumbered(Basic basic) { super(basic); }
   public long getSerialNumber() { return serialNumber; }
-}	
+}
 
 public class Decoration {
   public static void main(String[] args) {
     TimeStamped t = new TimeStamped(new Basic());
     TimeStamped t2 = new TimeStamped(
       new SerialNumbered(new Basic()));
-    //! t2.getSerialNumber(); // Not available
+    //- t2.getSerialNumber(); // Not available
     SerialNumbered s = new SerialNumbered(new Basic());
     SerialNumbered s2 = new SerialNumbered(
       new TimeStamped(new Basic()));
-    //! s2.getStamp(); // Not available
+    //- s2.getStamp(); // Not available
   }
-} ///:~
+}

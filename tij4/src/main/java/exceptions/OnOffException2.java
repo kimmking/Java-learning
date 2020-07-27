@@ -1,4 +1,6 @@
 package exceptions;
-
-//: exceptions/OnOffException2.java
-public class OnOffException2 extends Exception {} ///:~
+// exceptions/OnOffException2.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+public class OnOffException2 extends Exception {}

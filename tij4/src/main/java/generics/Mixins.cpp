@@ -1,4 +1,7 @@
-//: generics/Mixins.cpp
+// generics/Mixins.cpp
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 #include <string>
 #include <ctime>
 #include <iostream>
@@ -27,17 +30,18 @@ class Basic {
 public:
   void set(string val) { value = val; }
   string get() { return value; }
-};	
+};
 
 int main() {
-  TimeStamped<SerialNumbered<Basic> > mixin1, mixin2;
+  TimeStamped<SerialNumbered<Basic>> mixin1, mixin2;
   mixin1.set("test string 1");
   mixin2.set("test string 2");
   cout << mixin1.get() << " " << mixin1.getStamp() <<
     " " << mixin1.getSerialNumber() << endl;
   cout << mixin2.get() << " " << mixin2.getStamp() <<
     " " << mixin2.getSerialNumber() << endl;
-} /* Output: (Sample)
-test string 1 1129840250 1
-test string 2 1129840250 2
-*///:~
+}
+/* Output:
+test string 1 1452987605 1
+test string 2 1452987605 2
+*/

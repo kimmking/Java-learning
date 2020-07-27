@@ -1,8 +1,16 @@
-//: polymorphism/shape/Triangle.java
+// polymorphism/shape/Triangle.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 package polymorphism.shape;
-import static net.mindview.util.Print.*;
 
 public class Triangle extends Shape {
-  public void draw() { print("Triangle.draw()"); }
-  public void erase() { print("Triangle.erase()"); }
-} ///:~
+  @Override
+  public void draw() {
+    System.out.println("Triangle.draw()");
+  }
+  @Override
+  public void erase() {
+    System.out.println("Triangle.erase()");
+  }
+}

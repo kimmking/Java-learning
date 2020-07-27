@@ -1,34 +1,55 @@
-//: annotations/AtUnitExample1.java
+// annotations/AtUnitExample1.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// {java onjava.atunit.AtUnit
+// build/classes/main/annotations/AtUnitExample1.class}
 package annotations;
-import net.mindview.atunit.*;
-import net.mindview.util.*;
+
+import onjava.atunit.Test;
 
 public class AtUnitExample1 {
-  public String methodOne() {
-    return "This is methodOne";
-  }
-  public int methodTwo() {
-    System.out.println("This is methodTwo");
-    return 2;
-  }
-  @Test boolean methodOneTest() {
-    return methodOne().equals("This is methodOne");
-  }
-  @Test boolean m2() { return methodTwo() == 2; }
-  @Test private boolean m3() { return true; }
-  // Shows output for failure:
-  @Test boolean failureTest() { return false; }
-  @Test boolean anotherDisappointment() { return false; }
-  public static void main(String[] args) throws Exception {
-    OSExecute.command(
-      "java net.mindview.atunit.AtUnit AtUnitExample1");
-  }
-} /* Output:
+    public String methodOne() {
+        return "This is methodOne";
+    }
+
+    public int methodTwo() {
+        System.out.println("This is methodTwo");
+        return 2;
+    }
+
+    @Test
+    boolean methodOneTest() {
+        return methodOne().equals("This is methodOne");
+    }
+
+    @Test
+    boolean m2() {
+        return methodTwo() == 2;
+    }
+
+    @Test
+    private boolean m3() {
+        return true;
+    }
+
+    // Shows output for failure:
+    @Test
+    boolean failureTest() {
+        return false;
+    }
+
+    @Test
+    boolean anotherDisappointment() {
+        return false;
+    }
+}
+/* Output:
 annotations.AtUnitExample1
+  . m3
   . methodOneTest
   . m2 This is methodTwo
 
-  . m3
   . failureTest (failed)
   . anotherDisappointment (failed)
 (5 tests)
@@ -36,4 +57,4 @@ annotations.AtUnitExample1
 >>> 2 FAILURES <<<
   annotations.AtUnitExample1: failureTest
   annotations.AtUnitExample1: anotherDisappointment
-*///:~
+*/

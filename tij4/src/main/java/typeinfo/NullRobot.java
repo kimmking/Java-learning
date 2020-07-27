@@ -1,22 +1,32 @@
-package typeinfo;//: typeinfo/NullRobot.java
-// Using a dynamic proxy to create a Null Object.
+package typeinfo;
+// typeinfo/NullRobot.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// Using a dynamic proxy to create an Optional
 import java.lang.reflect.*;
 import java.util.*;
-import net.mindview.util.*;
+import java.util.stream.*;
+import onjava.*;
 
-class NullRobotProxyHandler implements InvocationHandler {
+class NullRobotProxyHandler
+implements InvocationHandler {
   private String nullName;
   private Robot proxied = new NRobot();
   NullRobotProxyHandler(Class<? extends Robot> type) {
     nullName = type.getSimpleName() + " NullRobot";
   }
   private class NRobot implements Null, Robot {
+    @Override
     public String name() { return nullName; }
+    @Override
     public String model() { return nullName; }
+    @Override
     public List<Operation> operations() {
       return Collections.emptyList();
     }
-  }	
+  }
+  @Override
   public Object
   invoke(Object proxy, Method method, Object[] args)
   throws Throwable {
@@ -31,16 +41,15 @@ public class NullRobot {
       NullRobot.class.getClassLoader(),
       new Class[]{ Null.class, Robot.class },
       new NullRobotProxyHandler(type));
-  }	
+  }
   public static void main(String[] args) {
-    Robot[] bots = {
+    Stream.of(
       new SnowRemovalRobot("SnowBee"),
       newNullRobot(SnowRemovalRobot.class)
-    };
-    for(Robot bot : bots)
-      Robot.Test.test(bot);
+    ).forEach(Robot::test);
   }
-} /* Output:
+}
+/* Output:
 Robot name: SnowBee
 Robot model: SnowBot Series 11
 SnowBee can shovel snow
@@ -52,4 +61,4 @@ SnowBee clearing roof
 [Null Robot]
 Robot name: SnowRemovalRobot NullRobot
 Robot model: SnowRemovalRobot NullRobot
-*///:~
+*/

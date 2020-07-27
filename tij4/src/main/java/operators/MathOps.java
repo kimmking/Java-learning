@@ -1,7 +1,10 @@
-package operators;//: operators/MathOps.java
-// Demonstrates the mathematical operators.
+package operators;
+// operators/MathOps.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
+// The mathematical operators
 import java.util.*;
-import static net.mindview.util.Print.*;
 
 public class MathOps {
   public static void main(String[] args) {
@@ -10,47 +13,48 @@ public class MathOps {
     int i, j, k;
     // Choose value from 1 to 100:
     j = rand.nextInt(100) + 1;
-    print("j : " + j);
+    System.out.println("j : " + j);
     k = rand.nextInt(100) + 1;
-    print("k : " + k);
+    System.out.println("k : " + k);
     i = j + k;
-    print("j + k : " + i);
+    System.out.println("j + k : " + i);
     i = j - k;
-    print("j - k : " + i);
+    System.out.println("j - k : " + i);
     i = k / j;
-    print("k / j : " + i);
+    System.out.println("k / j : " + i);
     i = k * j;
-    print("k * j : " + i);
+    System.out.println("k * j : " + i);
     i = k % j;
-    print("k % j : " + i);
+    System.out.println("k % j : " + i);
     j %= k;
-    print("j %= k : " + j);
+    System.out.println("j %= k : " + j);
     // Floating-point number tests:
     float u, v, w; // Applies to doubles, too
     v = rand.nextFloat();
-    print("v : " + v);
+    System.out.println("v : " + v);
     w = rand.nextFloat();
-    print("w : " + w);
+    System.out.println("w : " + w);
     u = v + w;
-    print("v + w : " + u);
+    System.out.println("v + w : " + u);
     u = v - w;
-    print("v - w : " + u);
+    System.out.println("v - w : " + u);
     u = v * w;
-    print("v * w : " + u);
+    System.out.println("v * w : " + u);
     u = v / w;
-    print("v / w : " + u);
+    System.out.println("v / w : " + u);
     // The following also works for char,
     // byte, short, int, long, and double:
     u += v;
-    print("u += v : " + u);
+    System.out.println("u += v : " + u);
     u -= v;
-    print("u -= v : " + u);
+    System.out.println("u -= v : " + u);
     u *= v;
-    print("u *= v : " + u);
+    System.out.println("u *= v : " + u);
     u /= v;
-    print("u /= v : " + u);
+    System.out.println("u /= v : " + u);
   }
-} /* Output:
+}
+/* Output:
 j : 59
 k : 56
 j + k : 115
@@ -69,4 +73,4 @@ u += v : 10.471473
 u -= v : 9.940527
 u *= v : 5.2778773
 u /= v : 9.940527
-*///:~
+*/

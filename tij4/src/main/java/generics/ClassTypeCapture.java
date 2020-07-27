@@ -1,4 +1,8 @@
-package generics;//: generics/ClassTypeCapture.java
+package generics;
+// generics/ClassTypeCapture.java
+// (c)2017 MindView LLC: see Copyright.txt
+// We make no guarantees that this code is fit for any purpose.
+// Visit http://OnJava8.com for more book information.
 
 class Building {}
 class House extends Building {}
@@ -10,20 +14,21 @@ public class ClassTypeCapture<T> {
   }
   public boolean f(Object arg) {
     return kind.isInstance(arg);
-  }	
+  }
   public static void main(String[] args) {
     ClassTypeCapture<Building> ctt1 =
-      new ClassTypeCapture<Building>(Building.class);
+      new ClassTypeCapture<>(Building.class);
     System.out.println(ctt1.f(new Building()));
     System.out.println(ctt1.f(new House()));
     ClassTypeCapture<House> ctt2 =
-      new ClassTypeCapture<House>(House.class);
+      new ClassTypeCapture<>(House.class);
     System.out.println(ctt2.f(new Building()));
     System.out.println(ctt2.f(new House()));
   }
-} /* Output:
+}
+/* Output:
 true
 true
 false
 true
-*///:~
+*/
