@@ -1,11 +1,9 @@
 package lambdasinaction.chap10;
 
-import org.junit.*;
 
 import java.util.*;
 
 import static java.util.Optional.*;
-import static org.junit.Assert.assertEquals;
 
 public class ReadPositiveIntParam {
 
