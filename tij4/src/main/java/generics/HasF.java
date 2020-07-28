@@ -5,7 +5,8 @@ package generics;
 // Visit http://OnJava8.com for more book information.
 
 public class HasF {
-  public void f() {
-    System.out.println("HasF.f()");
-  }
+
+    public void f() {
+        System.out.println("HasF.f()");
+    }
 }

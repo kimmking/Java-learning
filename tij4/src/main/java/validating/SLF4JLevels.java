@@ -4,9 +4,11 @@ package validating;
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 
-import org.slf4j.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SLF4JLevels {
+
     private static Logger log = LoggerFactory.getLogger(SLF4JLevels.class);
 
     public static void main(String[] args) {

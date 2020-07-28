@@ -10,16 +10,16 @@ public class Erased<T> {
 
     public void f(Object arg) {
         // error: illegal generic type for instanceof
-        if (arg instanceof T) {
-        }
+//        if (arg instanceof T) {
+//        }
 
         // error: unexpected type
-        T var = new T();
+//        T var = new T();
 
         // error: generic array creation
-        T[] array = new T[SIZE];
+//        T[] array = new T[SIZE];
 
         // warning: [unchecked] unchecked cast
-        T[] array = (T[]) new Object[SIZE];
+//        T[] array = (T[]) new Object[SIZE];
     }
 }
