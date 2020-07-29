@@ -8,8 +8,9 @@ package generics;
 import java.util.List;
 
 public class UseList<W, T> {
-    void f2(List<T> v) {
-    }
+
+//    void f(List<T> v) {
+//    }
 
     void f(List<W> v) {
     }

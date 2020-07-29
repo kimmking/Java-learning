@@ -280,8 +280,8 @@ public interface Rand {
         }
     }
 
-    class String
-            implements Supplier<java.lang.String> {
+    class String implements Supplier<java.lang.String> {
+
         SplittableRandom r = new SplittableRandom(47);
         private int strlen = 7; // Default length
 
@@ -305,8 +305,7 @@ public interface Rand {
         }
 
         public java.lang.String[] array(int sz) {
-            java.lang.String[] result =
-                    new java.lang.String[sz];
+            java.lang.String[] result = new java.lang.String[sz];
             Arrays.setAll(result, n -> get());
             return result;
         }

@@ -21,7 +21,7 @@ public class CovariantArrays {
     public static void main(String[] args) {
         Fruit[] fruit = new Apple[10];
         fruit[0] = new Apple(); // OK
-        fruit[1] = new Jonathan(); // OK
+//        fruit[1] = new Jonathan(); // OK
         // Runtime type is Apple[], not Fruit[] or Orange[]:
         try {
             // Compiler allows you to add Fruit:
