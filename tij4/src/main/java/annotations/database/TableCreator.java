@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TableCreator {
+
     public static void main(String[] args) throws Exception {
         if (args.length < 1) {
             System.out.println("arguments: annotated classes");
@@ -22,9 +23,7 @@ public class TableCreator {
             Class<?> cl = Class.forName(className);
             DBTable dbTable = cl.getAnnotation(DBTable.class);
             if (dbTable == null) {
-                System.out.println(
-                        "No DBTable annotations in class " +
-                                className);
+                System.out.println("No DBTable annotations in class " + className);
                 continue;
             }
             String tableName = dbTable.name();
