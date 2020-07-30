@@ -30,8 +30,9 @@ class Teller {
     }
 }
 
+
 class Bank {
-    private List<BankTeller> tellers = new ArrayList<>();
+    private final List<BankTeller> tellers = new ArrayList<>();
 
     public void put(BankTeller bt) {
         tellers.add(bt);
@@ -46,21 +47,17 @@ public class BankTeller {
 
     public static void main(String[] args) {
         // Demonstrate create():
-        RandomList<Teller> tellers =
-                Suppliers.create(
-                        RandomList::new, Teller::new, 4);
+        RandomList<Teller> tellers = Suppliers.create(RandomList::new, Teller::new, 4);
+
         // Demonstrate fill():
-        List<Customer> customers = Suppliers.fill(
-                new ArrayList<>(), Customer::new, 12);
-        customers.forEach(c ->
-                serve(tellers.select(), c));
+        List<Customer> customers = Suppliers.fill(new ArrayList<>(), Customer::new, 12);
+        customers.forEach(c -> serve(tellers.select(), c));
+
         // Demonstrate assisted latent typing:
-        Bank bank = Suppliers.fill(
-                new Bank(), Bank::put, BankTeller::new, 3);
+        Bank bank = Suppliers.fill(new Bank(), Bank::put, BankTeller::new, 3);
+
         // Can also use second version of fill():
-        List<Customer> customers2 = Suppliers.fill(
-                new ArrayList<>(),
-                List::add, Customer::new, 12);
+        List<Customer> customers2 = Suppliers.fill(new ArrayList<>(), List::add, Customer::new, 12);
     }
 }
 /* Output:

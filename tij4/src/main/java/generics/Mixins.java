@@ -11,6 +11,7 @@ interface TimeStamped {
 }
 
 class TimeStampedImp implements TimeStamped {
+
     private final long timeStamp;
 
     TimeStampedImp() {
@@ -57,11 +58,9 @@ class BasicImp implements Basic {
     }
 }
 
-class Mixin extends BasicImp
-        implements TimeStamped, SerialNumbered {
-    private TimeStamped timeStamp = new TimeStampedImp();
-    private SerialNumbered serialNumber =
-            new SerialNumberedImp();
+class Mixin extends BasicImp implements TimeStamped, SerialNumbered {
+    private final TimeStamped timeStamp = new TimeStampedImp();
+    private final SerialNumbered serialNumber = new SerialNumberedImp();
 
     @Override
     public long getStamp() {
