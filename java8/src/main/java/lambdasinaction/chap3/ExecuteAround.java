@@ -11,7 +11,7 @@ public class ExecuteAround {
 
         System.out.println("---");
 
-		String oneLine = processFile((BufferedReader b) -> b.readLine());
+		String oneLine = processFile(BufferedReader::readLine);
 		System.out.println(oneLine);
 
 		String twoLines = processFile((BufferedReader b) -> b.readLine() + b.readLine());

@@ -9,6 +9,7 @@ package annotations;
 import onjava.atunit.Test;
 
 public class AtUnitExample1 {
+
     public String methodOne() {
         return "This is methodOne";
     }
@@ -44,6 +45,7 @@ public class AtUnitExample1 {
         return false;
     }
 }
+
 /* Output:
 annotations.AtUnitExample1
   . m3

@@ -16,18 +16,15 @@ import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
 import java.util.Set;
 
-@SupportedAnnotationTypes(
-        "annotations.simplest.Simple")
+@SupportedAnnotationTypes("annotations.simplest.Simple")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class SimpleProcessor extends AbstractProcessor {
+
     @Override
-    public boolean process(
-            Set<? extends TypeElement> annotations,
-            RoundEnvironment env) {
+    public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment env) {
         for (TypeElement t : annotations)
             System.out.println(t);
-        for (Element el :
-                env.getElementsAnnotatedWith(Simple.class))
+        for (Element el : env.getElementsAnnotatedWith(Simple.class))
             display(el);
         return false;
     }

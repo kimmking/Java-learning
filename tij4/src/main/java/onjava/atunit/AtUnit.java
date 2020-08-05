@@ -18,14 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AtUnit implements ProcessFiles.Strategy {
+
     static Class<?> testClass;
     static List<String> failedTests = new ArrayList<>();
     static long testsRun = 0;
     static long failures = 0;
 
     public static void main(String[] args) throws Exception {
-        ClassLoader.getSystemClassLoader()
-                .setDefaultAssertionStatus(true); // Enable assert
+        ClassLoader.getSystemClassLoader().setDefaultAssertionStatus(true); // Enable assert
         new ProcessFiles(new AtUnit(), "class").start(args);
         if (failures == 0)
             System.out.println("OK (" + testsRun + " tests)");
@@ -42,8 +42,7 @@ public class AtUnit implements ProcessFiles.Strategy {
     @Override
     public void process(File cFile) {
         try {
-            String cName = ClassNameFinder.thisClass(
-                    Files.readAllBytes(cFile.toPath()));
+            String cName = ClassNameFinder.thisClass(Files.readAllBytes(cFile.toPath()));
             if (!cName.startsWith("public:"))
                 return;
             cName = cName.split(":")[1];
@@ -111,8 +110,7 @@ public class AtUnit implements ProcessFiles.Strategy {
         }
     }
 
-    public static
-    class TestMethods extends ArrayList<Method> {
+    public static class TestMethods extends ArrayList<Method> {
         void addIfTestMethod(Method m) {
             if (m.getAnnotation(Test.class) == null)
                 return;
@@ -157,8 +155,7 @@ public class AtUnit implements ProcessFiles.Strategy {
         return m;
     }
 
-    private static Object
-    createTestObject(Method creator) {
+    private static Object createTestObject(Method creator) {
         if (creator != null) {
             try {
                 return creator.invoke(testClass);
@@ -168,11 +165,14 @@ public class AtUnit implements ProcessFiles.Strategy {
                 throw new RuntimeException("Couldn't run " +
                         "@TestObject (creator) method.");
             }
-        } else { // Use the no-arg constructor:
+        } else {
             try {
-                return testClass.newInstance();
-            } catch (InstantiationException |
-                    IllegalAccessException e) {
+                // Use the no-arg constructor:
+                return testClass.getDeclaredConstructor().newInstance();
+            } catch (InstantiationException
+                    | IllegalAccessException
+                    | NoSuchMethodException
+                    | InvocationTargetException e) {
                 throw new RuntimeException(
                         "Couldn't create a test object. " +
                                 "Try using a @TestObject method.");

@@ -15,6 +15,7 @@ import onjava.atunit.TestProperty;
 import java.util.*;
 
 public class AtUnitExample4 {
+
     static String theory = "All brontosauruses " +
             "are thin at one end, much MUCH thicker in the " +
             "middle, and then thin again at the far end.";
@@ -40,8 +41,7 @@ public class AtUnitExample4 {
     }
 
     @TestProperty
-    static List<String> input =
-            Arrays.asList(theory.split(" "));
+    static List<String> input = Arrays.asList(theory.split(" "));
     @TestProperty
     static Iterator<String> words = input.iterator();
 

@@ -11,12 +11,13 @@ import java.nio.file.Files;
 import java.nio.file.PathMatcher;
 
 public class ProcessFiles {
+
     public interface Strategy {
         void process(File file);
     }
 
-    private Strategy strategy;
-    private String ext;
+    private final Strategy strategy;
+    private final String ext;
 
     public ProcessFiles(Strategy strategy, String ext) {
         this.strategy = strategy;
@@ -45,8 +46,7 @@ public class ProcessFiles {
         }
     }
 
-    public void
-    processDirectoryTree(File root) throws IOException {
+    public void processDirectoryTree(File root) throws IOException {
         PathMatcher matcher = FileSystems.getDefault()
                 .getPathMatcher("glob:**/*.{" + ext + "}");
         Files.walk(root.toPath())
