@@ -10,9 +10,11 @@ import java.util.Random;
 import java.util.function.Supplier;
 
 enum CartoonCharacter implements Supplier<CartoonCharacter> {
+
     SLAPPY, SPANKY, PUNCHY,
     SILLY, BOUNCY, NUTTY, BOB;
-    private Random rand = new Random(47);
+
+    private final Random rand = new Random(47);
 
     @Override
     public CartoonCharacter get() {
@@ -21,6 +23,7 @@ enum CartoonCharacter implements Supplier<CartoonCharacter> {
 }
 
 public class EnumImplementation {
+
     public static <T> void printNext(Supplier<T> rg) {
         System.out.print(rg.get() + ", ");
     }

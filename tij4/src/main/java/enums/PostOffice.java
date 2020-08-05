@@ -9,6 +9,7 @@ import onjava.Enums;
 import java.util.Iterator;
 
 class Mail {
+
     // The NO's reduce probability of random selection:
     enum GeneralDelivery {YES, NO1, NO2, NO3, NO4, NO5}
 
@@ -45,25 +46,22 @@ class Mail {
     // Generate test Mail:
     public static Mail randomMail() {
         Mail m = new Mail();
-        m.generalDelivery =
-                Enums.random(GeneralDelivery.class);
-        m.scannability =
-                Enums.random(Scannability.class);
-        m.readability =
-                Enums.random(Readability.class);
+        m.generalDelivery = Enums.random(GeneralDelivery.class);
+        m.scannability = Enums.random(Scannability.class);
+        m.readability = Enums.random(Readability.class);
         m.address = Enums.random(Address.class);
-        m.returnAddress =
-                Enums.random(ReturnAddress.class);
+        m.returnAddress = Enums.random(ReturnAddress.class);
         return m;
     }
 
     public static Iterable<Mail> generator(final int count) {
-        return new Iterable<Mail>() {
+        return new Iterable<>() {
             int n = count;
 
             @Override
             public Iterator<Mail> iterator() {
-                return new Iterator<Mail>() {
+                return new Iterator<>() {
+
                     @Override
                     public boolean hasNext() {
                         return n-- > 0;
@@ -167,6 +165,7 @@ public class PostOffice {
         }
     }
 }
+
 /* Output:
 Mail 0, General Delivery: NO2, Address Scanability:
 UNSCANNABLE, Address Readability: YES3, Address

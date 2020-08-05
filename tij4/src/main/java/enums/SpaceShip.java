@@ -6,6 +6,7 @@ package enums;// enums/SpaceShip.java
 import java.util.stream.Stream;
 
 public enum SpaceShip {
+
     SCOUT, CARGO, TRANSPORT,
     CRUISER, BATTLESHIP, MOTHERSHIP;
 

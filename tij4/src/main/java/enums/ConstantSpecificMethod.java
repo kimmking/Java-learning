@@ -7,20 +7,21 @@ import java.text.DateFormat;
 import java.util.Date;
 
 public enum ConstantSpecificMethod {
+
     DATE_TIME {
         @Override
         String getInfo() {
-            return
-                    DateFormat.getDateInstance()
-                            .format(new Date());
+            return DateFormat.getDateInstance().format(new Date());
         }
     },
+
     CLASSPATH {
         @Override
         String getInfo() {
             return System.getenv("CLASSPATH");
         }
     },
+
     VERSION {
         @Override
         String getInfo() {

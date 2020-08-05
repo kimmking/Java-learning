@@ -14,6 +14,7 @@ import java.util.TreeSet;
 enum Explore {HERE, THERE}
 
 public class Reflection {
+
     public static Set<String> analyze(Class<?> enumClass) {
         System.out.println(
                 "_____ Analyzing " + enumClass + " _____");
@@ -31,8 +32,7 @@ public class Reflection {
     }
 
     public static void main(String[] args) {
-        Set<String> exploreMethods =
-                analyze(Explore.class);
+        Set<String> exploreMethods = analyze(Explore.class);
         Set<String> enumMethods = analyze(Enum.class);
         System.out.println(
                 "Explore.containsAll(Enum)? " +

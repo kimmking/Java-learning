@@ -7,6 +7,7 @@ package enums;// enums/SecurityCategory.java
 import onjava.Enums;
 
 enum SecurityCategory {
+
     STOCK(Security.Stock.class),
     BOND(Security.Bond.class);
     Security[] values;

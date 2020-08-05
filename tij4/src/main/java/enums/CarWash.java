@@ -53,8 +53,7 @@ public class CarWash {
         abstract void action();
     }
 
-    EnumSet<Cycle> cycles =
-            EnumSet.of(Cycle.BASIC, Cycle.RINSE);
+    EnumSet<Cycle> cycles = EnumSet.of(Cycle.BASIC, Cycle.RINSE);
 
     public void add(Cycle cycle) {
         cycles.add(cycle);

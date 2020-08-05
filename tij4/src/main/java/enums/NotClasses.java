@@ -5,18 +5,21 @@ package enums;// enums/NotClasses.java
 // {javap -c LikeClasses}
 
 enum LikeClasses {
+
     WINKEN {
         @Override
         void behavior() {
             System.out.println("Behavior1");
         }
     },
+
     BLINKEN {
         @Override
         void behavior() {
             System.out.println("Behavior2");
         }
     },
+
     NOD {
         @Override
         void behavior() {
@@ -32,8 +35,8 @@ public class NotClasses {
 }
 /* Output: (First 12 Lines)
 Compiled from "NotClasses.java"
-abstract class LikeClasses extends
-java.lang.Enum<LikeClasses> {
+abstract class LikeClasses extends java.lang.Enum<LikeClasses> {
+
   public static final LikeClasses WINKEN;
 
   public static final LikeClasses BLINKEN;
