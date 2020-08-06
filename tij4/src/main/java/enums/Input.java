@@ -15,13 +15,15 @@ public enum Input {
             throw new RuntimeException("ABORT.amount()");
         }
     },
+
     STOP { // This must be the last instance.
+
         @Override
         public int amount() { // Disallow
-            throw new
-                    RuntimeException("SHUT_DOWN.amount()");
+            throw new RuntimeException("SHUT_DOWN.amount()");
         }
     };
+
     int value; // In cents
 
     Input(int value) {
@@ -35,7 +37,7 @@ public enum Input {
         return value;
     }
 
-    ; // In cents
+    // In cents
     static Random rand = new Random(47);
 
     public static Input randomSelection() {

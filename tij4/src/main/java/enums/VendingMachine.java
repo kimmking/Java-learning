@@ -163,7 +163,7 @@ class RandomInputSupplier implements Supplier<Input> {
 
 // Create Inputs from a file of ';'-separated strings:
 class FileInputSupplier implements Supplier<Input> {
-    private Iterator<String> input;
+    private final Iterator<String> input;
 
     FileInputSupplier(String fileName) {
         try {

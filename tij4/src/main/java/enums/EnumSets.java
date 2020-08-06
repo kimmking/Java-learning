@@ -13,8 +13,7 @@ import static enums.AlarmPoints.*;
 public class EnumSets {
 
     public static void main(String[] args) {
-        EnumSet<AlarmPoints> points =
-                EnumSet.noneOf(AlarmPoints.class); // Empty
+        EnumSet<AlarmPoints> points = EnumSet.noneOf(AlarmPoints.class); // Empty
         points.add(BATHROOM);
         System.out.println(points);
         points.addAll(
